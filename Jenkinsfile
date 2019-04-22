@@ -12,8 +12,7 @@ pipeline {
             // Copy the documentation of all services into the documentation repository
             steps {
                 dir("__riptide_docs") {
-                    git url: 'git@github.com:Parakoopa/riptide-docs.git',
-                        credentialsId: 'riptide-repo-ssh'
+                    git url: 'git@github.com:Parakoopa/riptide-docs.git', credentialsId: 'riptide-repo-ssh'
                     sh '../copy_docs.py'
                     sh 'git add source/repo_docs'
                     sshagent(credentials : ['riptide-repo-ssh']) {
