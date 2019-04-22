@@ -28,7 +28,7 @@ def copy_files(type):
 
         # Insert the link to the repository before all contents:
         with open(file, 'r') as f:
-            lines = f.readlines()
+            lines = [".. AUTO-GENERATED, SEE README_CONTRIBUTORS. DO NOT EDIT.\n\n"] + f.readlines()
 
         index = 0
         for index, line in enumerate(lines):
