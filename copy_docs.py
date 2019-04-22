@@ -10,7 +10,10 @@ repo_path = os.path.dirname(os.path.realpath(__file__))
 docs_path = os.path.join(os.getcwd(), 'source', 'repo_docs')
 
 # Delete directories
-shutil.rmtree(docs_path)
+try:
+    shutil.rmtree(docs_path)
+except FileNotFoundError:
+    pass
 os.makedirs(docs_path)
 
 # Create info file
