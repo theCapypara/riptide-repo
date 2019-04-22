@@ -1,5 +1,7 @@
 service:
   image: mysql
+  roles:
+    - db
   driver:
     name: mysql
     config:

@@ -117,8 +117,6 @@ app:
 
     db:
       $ref: /service/mysql/5.6
-      roles:
-        - db
       driver:
         config:
           database: magento2
