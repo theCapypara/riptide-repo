@@ -1,0 +1,11 @@
+service:
+  image: mysql
+  driver:
+    name: mysql
+    config:
+      database: mysql
+      password: mysql
+  run_as_current_user: false
+  post_start:
+    # Wait for db
+    - 'while ! mysqladmin ping -u "root" -p"{{ driver.config.password }}" --silent; do sleep 1; done'

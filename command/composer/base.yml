@@ -1,0 +1,9 @@
+command:
+  image: composer
+  command: composer
+  additional_volumes:
+    tmp:
+      host: '{{ get_tempdir() }}'
+      container: '/tmp/'
+  environment:
+    COMPOSER_HOME: '{{ home_path() }}/.composer'

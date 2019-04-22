@@ -71,13 +71,18 @@ can be found in the _contrib-templates directory.
 Submission guidelines
 ~~~~~~~~~~~~~~~~~~~~~
 
-- Images should be official (marked as "Official Image" in the Docker hub)
-  or from the "`riptidepy <https://hub.docker.com/u/riptidepy>`_" org on Docker Hub (see docker_images_).
+- Images should be either:
+
+  - official (marked as "Official Image" in the Docker hub),
+  - from the "`riptidepy <https://hub.docker.com/u/riptidepy>`_" org on Docker Hub (see docker_images_).
+  - or very well maintained, open source and trusted (eg. high amount of stars on Github)
+
 - When using variables, do not reference fields that contain other variables (expect
   in ``<Service>.notices``).
 - When using the variable helper function ``parent()``, do not reference fields that
   contain other variables.
 - ``do_not_create_user`` must not be ``True`` for services.
+- Standalone services must not have any roles set (except for ``db``).
 
 More Guidelines may be added.
 

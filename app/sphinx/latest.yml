@@ -1,0 +1,56 @@
+app:
+  name: "sphinx"
+  services:
+    sphinx:
+      roles:
+        - src
+        - main
+      image: riptidepy/sphinx
+      port: 8000
+      logging:
+        stdout: true
+        stderr: true
+      environment:
+        #REQUIREMENTS_FILE may be set: Read this file on startup and install it's requirements before starting the server"
+        SPHINX_SOURCE: source
+        SPHINX_BUILD: build
+      additional_volumes:
+        py_packages:
+          host: '{{ volume_path() }}/site_packages'
+          container: '{{ home_path() }}/.local/lib/python3.7/site-packages'
+  commands:
+    make:
+      image: "{{ parent().services.sphinx.image }}"
+      command: make
+
+    sphinx-build:
+      image: "{{ parent().services.sphinx.image }}"
+      command: sphinx-build
+      additional_volumes:
+        py_packages:
+          host: '{{ parent().services.sphinx.volume_path() }}/site_packages'
+          container: '{{ home_path() }}/.local/lib/python3.7/site-packages'
+
+    sphinx-autogen:
+      image: "{{ parent().services.sphinx.image }}"
+      command: sphinx-autogen
+      additional_volumes:
+        py_packages:
+          host: '{{ parent().services.sphinx.volume_path() }}/site_packages'
+          container: '{{ home_path() }}/.local/lib/python3.7/site-packages'
+
+    sphinx-apidoc:
+      image: "{{ parent().services.sphinx.image }}"
+      command: sphinx-apidoc
+      additional_volumes:
+        py_packages:
+          host: '{{ parent().services.sphinx.volume_path() }}/site_packages'
+          container: '{{ home_path() }}/.local/lib/python3.7/site-packages'
+
+    sphinx-doctest:
+      image: "{{ parent().services.sphinx.image }}"
+      command: "python -msphinx -b doctest {{ parent().services.sphinx.get_working_directory() }}/{{ parent().services.sphinx.environment.SPHINX_SOURCE }}"
+      additional_volumes:
+        py_packages:
+          host: '{{ parent().services.sphinx.volume_path() }}/site_packages'
+          container: '{{ home_path() }}/.local/lib/python3.7/site-packages'

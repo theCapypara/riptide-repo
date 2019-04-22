@@ -1,0 +1,10 @@
+command:
+  image: node
+  command: npm
+  additional_volumes:
+    npmrc:
+      host: "~/.npmrc"
+      container: "/home/riptide/.npmrc"
+    npm:
+      host: "~/.npm"
+      container: "/home/riptide/.npm"

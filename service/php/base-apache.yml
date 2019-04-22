@@ -1,0 +1,8 @@
+service:
+    $ref: ./base
+    image: riptidepy/php:7-apache
+    port: 80
+    environment:
+      APACHE_RUN_USER: '#{{ os_user() }}'
+      APACHE_RUN_GROUP: '#{{ os_group() }}'
+    run_as_current_user: false

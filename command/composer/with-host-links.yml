@@ -1,0 +1,10 @@
+command:
+  $ref: ./base
+  additional_volumes:
+    composer:
+      host: "~/.composer"
+      container: "{{ home_path() }}/.composer"
+    ssh:
+      host: "~/.ssh"
+      container: "{{ home_path() }}/.ssh"
+      mode: "ro"

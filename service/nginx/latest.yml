@@ -1,0 +1,14 @@
+service:
+  # Not added by default, but propably needed.
+  #roles:
+  #  - src
+  image: nginx
+  port: 80
+  config:
+    nginx_conf:
+      from: assets/nginx.conf
+      to: '/etc/nginx/nginx.conf'
+  # User ID is set in nginx.conf:
+  run_as_current_user: false
+
+# TODO: Vhost needed: README

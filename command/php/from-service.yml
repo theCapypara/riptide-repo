@@ -1,0 +1,12 @@
+command:
+    $ref: ./base
+    # Uses the image from PHP service
+    image: "{{ parent().get_service_by_role('php').image }}"
+    # Load config files from php service
+    additional_volumes:
+      php_ini:
+        host: "{{ parent().get_service_by_role('php').config('php_ini') }}"
+        container: "/etc/php.d/z_riptide.ini"
+      msmtprc:
+        host: "{{ parent().get_service_by_role('php').config('msmtprc') }}"
+        container: "/etc/msmtprc"

@@ -1,0 +1,12 @@
+service:
+  image: rabbitmq:management-alpine
+  environment:
+    RABBITMQ_NODENAME:      rabbit@localhost
+    RABBITMQ_DEFAULT_USER:  rabbit
+    RABBITMQ_DEFAULT_PASS:  rabbit
+    RABBITMQ_USE_LONGNAME:  "true"
+  additional_volumes:
+    rabbitmq:
+      host: "{{volume_path()}}/rabbitmq"
+      container: /var/lib/rabbitmq
+  run_as_current_user: false

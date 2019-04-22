@@ -1,0 +1,21 @@
+service:
+    # If you don't have a mailcatcher set up, set the role of this service to mail. Mails will not work then, but
+    # you won't get an error on start:
+    #roles:
+    #  - mail
+
+    # If this is your main PHP service, add the role 'php'. You can then use the from-service php command template.
+    #roles:
+    #  - php
+
+    image: riptidepy/php
+    environment:
+      XDEBUG_CONFIG: 'remote_host={{ host_address() }}'
+      PHP_IDE_CONFIG: 'serverName=riptide-{{ parent().parent().name }}'
+    config:
+      php_ini:
+        from: assets/php.ini
+        to: '/etc/php.d/z_riptide.ini'
+      msmtprc:
+        from: assets/msmtprc
+        to: '/etc/msmtprc'

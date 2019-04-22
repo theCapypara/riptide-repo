@@ -1,0 +1,18 @@
+service:
+  roles:
+    - main
+  image: million12/varnish
+  port: 80
+  logging:
+    commands:
+      varnish: varnishlog
+  environment:
+    VCL_CONFIG: /etc/varnish/default.vcl
+  config:
+    vcl:
+      from: assets/default.vcl
+      to: /etc/varnish/default.vcl
+  run_as_current_user: false
+  pre_start:
+    # Wait for varnish target
+    - "until ping -c5 {{ parent().get_service_by_role('varnish')['$name'] }} &>/dev/null; do :; done"

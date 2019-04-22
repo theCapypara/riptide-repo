@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<config>
+    <global>
+        <install>
+           <date><![CDATA[Fri, 12 Apr 2019 15:40:00 +0000]]></date>
+        </install>
+        <crypt>
+           <key><![CDATA[00000000000000000000000000000000]]></key>
+        </crypt>
+        <disable_local_modules>false</disable_local_modules>
+        <resources>
+            <default_setup>
+                <connection>
+                    <host>db</host>
+                    <username>root</username>
+                    <password>{{ parent().services.db.driver.config.password }}</password>
+                    <dbname>{{ parent().services.db.driver.config.database }}</dbname>
+                    <active>1</active>
+                </connection>
+            </default_setup>
+        </resources>
+
+        <cache>
+          <backend>Cm_Cache_Backend_Redis</backend>
+          <backend_options>
+            <server>redis</server>
+            <port>6379</port>
+          </backend_options>
+        </cache>
+
+        <session_save>redis</session_save>
+        <redis_session>
+            <host>redis</host>
+            <port>6379</port>
+        </redis_session>
+    </global>
+
+    <default>
+        <web>
+            <unsecure>
+                <base_url>https://{{ domain() }}/</base_url>
+            </unsecure>
+            <secure>
+                <base_url>https://{{ domain() }}/</base_url>
+            </secure>
+            <cookie>
+                <cookie_domain><![CDATA[]]></cookie_domain>
+            </cookie>
+        </web>
+    </default>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <frontName><![CDATA[shop-administration]]></frontName>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

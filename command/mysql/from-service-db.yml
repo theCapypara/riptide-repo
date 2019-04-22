@@ -1,0 +1,4 @@
+# Provides a mysql command based on the mysql service defined in the service with the role 'db'
+command:
+  image: "{{ parent().get_service_by_role('db').image }}"
+  command: "mysql -h{{ parent().get_service_by_role('db')['$name'] }} -uroot -p{{ parent().get_service_by_role('db').driver.config.password }} {{ parent().get_service_by_role('db').driver.config.database }}"

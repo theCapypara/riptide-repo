@@ -1,0 +1,91 @@
+app:
+  name: magento1
+  import:
+    media_files:
+      target: "{{ services.www.working_directory }}/media"
+      name: Media Files
+  notices:
+    usage: >-
+      After this setup, run the following commands to finish up:
+
+        # 1. Install Composer modules
+        cd <project>/{{ parent().src }}/{{ services.www.working_directory }}
+        riptide cmd composer install
+
+        # 2. Run any other tools that you might need.
+
+      Riptide set's only the default store's Base URLs (to http://{{ services.www.domain() }}).
+
+      You may need to create an .htaccess file. Please make sure the following line is present in your .htaccess:
+
+         SetEnvIf X-Forwarded-Proto https HTTPS=on
+
+      After that your Magento shop will be ready! Enjoy!
+
+    installation: >-
+      To install Magento see https://devdocs.magento.com/guides/m1x/install/installing_install.html.
+
+      Your database configuration for the installation wizard:
+
+      Database Host: db
+
+      Database Name: {{ services.db.driver.config.database }}
+
+      Database User: root
+
+      Database Password: {{ services.db.driver.config.password }}
+  services:
+    www:
+      $ref: /service/php/7.2/apache
+      roles:
+        - src
+        - main
+        - php
+      config:
+        local_xml:
+          from: assets/local.xml
+          to: '{{ get_working_directory() }}/app/etc/local.xml'
+      post_start:
+        # NOTE: run_as_current_user is false with apache, so su must be used to execute post_start commands as user!
+        # Wait for db
+        - '                                 while ! magerun db:info; do sleep 1; done'
+        - "su $(id -nu {{ os_user() }}) -c 'magerun cache:flush'"
+
+    db:
+      $ref: /service/mysql/5.6
+      roles:
+        - db
+      driver:
+        config:
+          database: magento1
+          password: magento1
+      logging:
+        stdout: true
+        stderr: true
+
+    redis:
+      $ref: /service/redis/4.0
+
+    mail:
+      roles:
+        # for php service:
+        - mail
+      $ref: /service/mailhog/latest
+
+  commands:
+    php:
+      $ref: /command/php/from-service
+    magerun:
+      $ref: /command/php/from-service
+      command: magerun
+      additional_volumes:
+        config:
+          host: "~/.n98-magerun"
+          container: "{{ home_path() }}/.n98-magerun"
+          mode: "ro"
+    n98-magerun:
+      aliases: magerun
+    mysql:
+      $ref: /command/mysql/from-service-db
+    composer:
+      $ref: /command/composer/with-host-links

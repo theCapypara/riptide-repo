@@ -1,0 +1,3 @@
+app:
+  name: magento1-ee-1.14
+  $ref: ../base
