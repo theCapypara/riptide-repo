@@ -25,11 +25,4 @@ pipeline {
 
     }
 
-    post {
-        always {
-            junit 'test_reports/**/*.xml'
-            sh "rm test_reports -rf || true"
-        }
-    }
-
 }
