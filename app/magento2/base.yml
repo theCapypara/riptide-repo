@@ -58,6 +58,7 @@ app:
         riptide cmd magento sampledata:deploy
 
         # 4. Run setup:upgrade
+        riptide restart -s redis
         riptide cmd magento setup:upgrade
 
       You can change the settings in step 3 to your likings, see the installation guide at
