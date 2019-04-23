@@ -20,7 +20,7 @@ pipeline {
                         sh 'git config --global user.email "riptide@parakoopa.de"'
                         sh 'git config --global user.name "Riptide Repo Docs"'
                         sh 'git push --set-upstream origin master'
-                        sh 'git commit -m "Riptide Repo documentation - Build for $(git rev-parse --short=8 ${GIT_COMMIT}) \n\nURL: https://github.com/Parakoopa/riptide-repo/commit/${GIT_COMMIT}"'
+                        sh 'git commit -m "Riptide Repo documentation - Build for $(git rev-parse --short=8 ${GIT_COMMIT}) \n\nURL: https://github.com/Parakoopa/riptide-repo/commit/${GIT_COMMIT}" || true'
                         sh 'git push'
                     }
                 }

@@ -26,11 +26,12 @@ app:
       To install Magento run the following commands on the command line:
 
         # 0. Download the Magento source code (replace with 'enterprise-edition' if you want):
+        mkdir -p <project_directory_root>/src
         cd <project_directory_root>/{{ parent().src }}
-        riptide cmd composer create-project --repository=https://repo.magento.com/ --ignore-platform-reqs magento/project-community-edition {{ services.www.working_directory }}
+        riptide cmd composer create-project --repository=https://repo.magento.com/ --ignore-platform-reqs magento/project-community-edition ./{{ services.www.working_directory }}
 
-        # 1. Move into the project directory and dump the autoloader
-        cd {{ services.www.working_directory }}
+        # 1. Dump the autoloader
+        cd ./{{ services.www.working_directory }}
         riptide cmd composer dump-autoload
 
         # 2. Start the database and redis
