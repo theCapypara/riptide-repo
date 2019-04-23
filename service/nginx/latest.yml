@@ -1,5 +1,5 @@
 service:
-  # Not added by default, but propably needed.
+  # Not added by default, but probably needed.
   #roles:
   #  - src
   image: nginx

@@ -3,9 +3,9 @@ Magento 2
 
 Magento_ eCommerce platform, version 2.
 
-The Riptide app comes with Varnish, Redis, RabbitMQ and a Mailcatcher.
+The Riptide app comes with Varnish, Redis, RabbitMQ and a mail catcher.
 
-Webserver is based on Nginx.
+Web server is based on Nginx.
 
 .. _Magento: https://magento.com/
 

@@ -3,9 +3,9 @@ Magento 1
 
 Magento_ eCommerce platform, version 1.
 
-The Riptide app comes with Redis and a Mailcatcher.
+The Riptide app comes with Redis and a mail catcher.
 
-Webserver is based on Apache.
+Web server is based on Apache.
 
 .. _Magento: https://magento.com/
 
