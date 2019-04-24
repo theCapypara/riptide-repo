@@ -2,14 +2,14 @@ app:
   name: magento2
   import:
     media_files:
-      target: "{{ services.www.working_directory }}/pub/media"
+      target: "{{ services.php.working_directory }}/pub/media"
       name: Media Files
   notices:
     usage: >-
       After this setup, run the following commands to finish up:
 
         # 1. Install Composer modules
-        cd <project>/{{ parent().src }}/{{ services.www.working_directory }}
+        cd <project>/{{ parent().src }}/{{ services.php.working_directory }}
         riptide cmd composer install --ignore-platform-reqs
 
         # 2. Start the database and redis
@@ -28,10 +28,10 @@ app:
         # 0. Download the Magento source code (replace with 'enterprise-edition' if you want):
         mkdir -p <project_directory_root>/src
         cd <project_directory_root>/{{ parent().src }}
-        riptide cmd composer create-project --repository=https://repo.magento.com/ --ignore-platform-reqs magento/project-community-edition ./{{ services.www.working_directory }}
+        riptide cmd composer create-project --repository=https://repo.magento.com/ --ignore-platform-reqs magento/project-community-edition ./{{ services.php.working_directory }}
 
         # 1. Dump the autoloader
-        cd ./{{ services.www.working_directory }}
+        cd ./{{ services.php.working_directory }}
         riptide cmd composer dump-autoload
 
         # 2. Start the database and redis
@@ -150,8 +150,8 @@ app:
       command: magerun2
       additional_volumes:
         env_php:
-          host: "{{ parent().services.php.config('env_php') }}"
-          container: "{{ parent().services.php.get_working_directory() }}/app/etc/env.php"
+          host: "{{ parent().get_service_by_role('php').config('env_php') }}"
+          container: "{{ parent().get_service_by_role('php').get_working_directory() }}/app/etc/env.php"
         config:
           host: "~/.n98-magerun2"
           container: "{{ home_path() }}/.n98-magerun2"
@@ -166,10 +166,10 @@ app:
       $ref: /command/mysql/from-service-db
     magento:
       $ref: /command/php/from-service
-      command: "{{ parent().services.php.get_working_directory() }}/bin/magento"
+      command: "{{ parent().get_service_by_role('php').get_working_directory() }}/bin/magento"
       additional_volumes:
         env_php:
-          host: "{{ parent().services.php.config('env_php') }}"
-          container: "{{ parent().services.php.get_working_directory() }}/app/etc/env.php"
+          host: "{{ parent().get_service_by_role('php').config('env_php') }}"
+          container: "{{ parent().get_service_by_role('php').get_working_directory() }}/app/etc/env.php"
     composer:
       $ref: /command/composer/with-host-links
