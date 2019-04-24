@@ -1,5 +1,6 @@
 command:
     image: riptidepy/php
+    command: php
     environment:
       XDEBUG_CONFIG: 'remote_host={{ host_address() }}'
       PHP_IDE_CONFIG: 'serverName=riptide-{{ parent().parent().name }}'
