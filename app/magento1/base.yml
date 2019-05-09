@@ -79,6 +79,9 @@ app:
       $ref: /command/php/from-service
       command: magerun
       additional_volumes:
+        local_xml:
+          host: "{{ parent().get_service_by_role('www').config('local_xml') }}"
+          container: "{{ parent().get_service_by_role('www').get_working_directory() }}/app/etc/local.xml"
         config:
           host: "~/.n98-magerun"
           container: "{{ home_path() }}/.n98-magerun"
