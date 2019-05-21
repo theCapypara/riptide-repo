@@ -80,8 +80,8 @@ app:
         # Wait for db
         - 'until bin/magento; do :; done'
         # Set basic database settings
-        - "bin/magento config:set --scope=default web/unsecure/base_url https://{{ parent().services.varnish.domain() }}/'"
-        - "bin/magento config:set --scope=default web/secure/base_url https://{{ parent().services.varnish.domain() }}/'"
+        - "bin/magento config:set --scope=default web/unsecure/base_url 'https://{{ parent().services.varnish.domain() }}/'"
+        - "bin/magento config:set --scope=default web/secure/base_url 'https://{{ parent().services.varnish.domain() }}/'"
         - "bin/magento config:set --scope=default web/secure/offloader_header X-Forwarded-Proto"
         # Flush cache
         - "bin/magento cache:flush"
