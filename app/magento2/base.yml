@@ -149,13 +149,12 @@ app:
       $ref: /command/php/from-service
       command: magerun2
       additional_volumes:
-        env_php:
-          host: "{{ parent().get_service_by_role('php').config('env_php') }}"
-          container: "{{ parent().get_service_by_role('php').get_working_directory() }}/app/etc/env.php"
         config:
           host: "~/.n98-magerun2"
           container: "{{ home_path() }}/.n98-magerun2"
           mode: "ro"
+      config_from_roles:
+        - php
     n98-magerun:
       aliases: magerun
     n98-magerun2:
@@ -167,9 +166,7 @@ app:
     magento:
       $ref: /command/php/from-service
       command: "{{ parent().get_service_by_role('php').get_working_directory() }}/bin/magento"
-      additional_volumes:
-        env_php:
-          host: "{{ parent().get_service_by_role('php').config('env_php') }}"
-          container: "{{ parent().get_service_by_role('php').get_working_directory() }}/app/etc/env.php"
+      config_from_roles:
+        - php
     composer:
       $ref: /command/composer/with-host-links

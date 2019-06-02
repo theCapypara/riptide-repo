@@ -79,13 +79,12 @@ app:
       $ref: /command/php/from-service
       command: magerun
       additional_volumes:
-        local_xml:
-          host: "{{ parent().get_service_by_role('php').config('local_xml') }}"
-          container: "{{ parent().get_service_by_role('php').get_working_directory() }}/app/etc/local.xml"
         config:
           host: "~/.n98-magerun"
           container: "{{ home_path() }}/.n98-magerun"
           mode: "ro"
+      config_from_roles:
+        - php
     n98-magerun:
       aliases: magerun
     mysql:
