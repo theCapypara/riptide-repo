@@ -5,6 +5,13 @@ command:
     npmrc:
       host: "~/.npmrc"
       container: "/home/riptide/.npmrc"
+    yarnrc:
+      host: "~/.yarnrc"
+      container: "/home/riptide/.yarnrc"
     npm:
       host: "~/.npm"
       container: "/home/riptide/.npm"
+    ssh:
+      host: "~/.ssh"
+      container: "{{ home_path() }}/.ssh"
+      mode: "ro"
