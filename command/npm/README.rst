@@ -25,7 +25,6 @@ Additional volumes
 | Name                  | Source                      | Source path                                 | Target path | Description |
 +=======================+=============================+=============================================+=============+=============+
 | npm                   | Home directory              | ~/.npm                                      | ~/.npm      | NPM cache   |
-+-----------------------+-----------------------------+---------------------------------------------+-------------+-------------+
 | npmrc                 | Home directory              | ~/.npmrc                                    | ~/.npmrc    | NPM config  |
 | yarnrc                | Home directory              | ~/.yarnrc                                   | ~/.yarnrc   | Yarn config  |
 | ssh                   | Home directory              | ~/.ssh                                      | ~/.ssh      | SSH configuration  |
