@@ -5,7 +5,7 @@ Magento_ eCommerce platform, version 2.
 
 The Riptide app comes with Varnish, Redis, RabbitMQ and a mail catcher.
 
-Web server is based on Nginx.
+Web server is based on Nginx. The "Apache" variants contain web servers based on Apache.
 
 .. _Magento: https://magento.com/
 
@@ -15,7 +15,7 @@ Web server is based on Nginx.
 ``/app/magento2/base``
 ----------------------
 
-Magento 2 base variant.
+Magento 2 base variant, using Nginx.
 
 Imports
 ~~~~~~~
@@ -218,16 +218,51 @@ MySQL client that load's the configuration from the service with role ``db``.
 
 The client auto-connects to the database from this service.
 
+``/app/magento2/apache``
+----------------------
+
+**Based on**: /app/magento2/base
+
+Variant of Magento using the Apache web-server instead.
+
+
 ``/app/magento2/ce/2.3``
 ------------------------
 
 **Based on**: /app/magento2/base
 
-Configuration for different versions of Magento Open Source, version 2.
+Configuration for different versions of Magento Open Source, version 2. Using Nginx.
+
+www
++++
+
+Is removed. The apache web-server with a PHP CGI module is in the PHP service.
+
+php
++++
+
+**Based on**: `/service/php/7.2/apache <https://github.com/Parakoopa/riptide-repo/tree/master/service/php>`_
+
+Apache + PHP.
 
 ``/app/magento2/ee/2.3``
 ------------------------
 
 **Based on**: /app/magento2/base
 
-Configuration for different versions of Magento Commerce, version 2.
+Configuration for different versions of Magento Commerce, version 2. Using Nginx.
+
+
+``/app/magento2/ce/2.3-apache``
+------------------------
+
+**Based on**: /app/magento2/base
+
+Configuration for different versions of Magento Open Source, version 2. Using Apache.
+
+``/app/magento2/ee/2.3-apache``
+------------------------
+
+**Based on**: /app/magento2/base
+
+Configuration for different versions of Magento Commerce, version 2. Using Apache.

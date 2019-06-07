@@ -1,0 +1,3 @@
+app:
+  name: magento2-ce-2.3-apache
+  $ref: ../apache

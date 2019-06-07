@@ -1,0 +1,10 @@
+app:
+  $ref: ./base
+
+  services:
+    php:
+      roles:
+        - varnish
+      $ref: /service/php/7.2/apache
+
+    www: $remove  # php contains Apache + PHP
