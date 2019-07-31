@@ -4,3 +4,7 @@ command:
     environment:
       XDEBUG_CONFIG: 'remote_host={{ host_address() }}'
       PHP_IDE_CONFIG: 'serverName=riptide-{{ parent().parent().name }}'
+    additional_volumes:
+      opcache:
+        host: "~/.php_riptide_opcache"
+        container: "/opcache"
