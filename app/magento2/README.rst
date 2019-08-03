@@ -235,6 +235,14 @@ php
 
 Apache web server + PHP.
 
+Roles
+.....
+
+**Has roles**: ``src``, ``php``, ``varnish``
+
+Has access to source code (``src``), is marked as main PHP service (``php``)
+and is marked as backend server for Varnish (``varnish``).
+
 www
 +++
 
