@@ -39,7 +39,7 @@ def copy_files(type):
                 break
 
         lines.insert(index, "**Link to entity in repository:** "
-                            "`<https://github.com/Parakoopa/riptide-repo/tree/master/app/%s>`_\n\n" % name)
+                            "`<https://github.com/Parakoopa/riptide-repo/tree/master/%s/%s>`_\n\n" % (type, name))
 
         with open(target_name, "w") as f:
             f.writelines(lines)
