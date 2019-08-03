@@ -219,50 +219,71 @@ MySQL client that load's the configuration from the service with role ``db``.
 The client auto-connects to the database from this service.
 
 ``/app/magento2/apache``
-----------------------
+------------------------
 
 **Based on**: /app/magento2/base
 
 Variant of Magento using the Apache web-server instead.
 
-
-``/app/magento2/ce/2.3``
-------------------------
-
-**Based on**: /app/magento2/base
-
-Configuration for different versions of Magento Open Source, version 2. Using Nginx.
+Services
+~~~~~~~~
 
 www
 +++
 
-Is removed. The apache web-server with a PHP CGI module is in the PHP service.
+Is removed.
+
+The apache web-server with a PHP CGI module is in the "php" service.
 
 php
 +++
 
 **Based on**: `/service/php/7.2/apache <https://github.com/Parakoopa/riptide-repo/tree/master/service/php>`_
 
-Apache + PHP.
+Apache web server + PHP.
 
-``/app/magento2/ee/2.3``
+
+``/app/magento2/ce/X``
+------------------------
+
+**Based on**: /app/magento2/base
+
+Configuration for different versions of Magento Open Source, version 2. Using Nginx.
+
+Available versions:
+
+- 2.3
+
+``/app/magento2/ee/X``
 ------------------------
 
 **Based on**: /app/magento2/base
 
 Configuration for different versions of Magento Commerce, version 2. Using Nginx.
 
+Available versions:
 
-``/app/magento2/ce/2.3-apache``
-------------------------
+- 2.3
 
-**Based on**: /app/magento2/base
+
+``/app/magento2/ce/X-apache``
+-----------------------------
+
+**Based on**: /app/magento2/apache
 
 Configuration for different versions of Magento Open Source, version 2. Using Apache.
 
-``/app/magento2/ee/2.3-apache``
-------------------------
+Available versions:
 
-**Based on**: /app/magento2/base
+- 2.3
+
+``/app/magento2/ee/X-apache``
+-----------------------------
+
+**Based on**: /app/magento2/apache
 
 Configuration for different versions of Magento Commerce, version 2. Using Apache.
+
+Available versions:
+
+- 2.3
