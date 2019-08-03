@@ -11,7 +11,7 @@ require access to the yarn cache.
 ..  contents:: Index
     :depth: 2
 
-``/command/npm/base``
+``/command/yarn/base``
 ----------------------
 
 Latest Yarn version with the latest Node.js version.
@@ -29,8 +29,8 @@ Additional volumes
 | ssh                   | Home directory              | ~/.ssh                                      | ~/.ssh      | SSH configuration  |
 +-----------------------+-----------------------------+---------------------------------------------+-------------+--------------------+
 
-``/command/npm/nodeX``
-----------------------
+``/command/yarn/nodeX``
+-----------------------
 
 **Based on**: /command/npm/base
 
