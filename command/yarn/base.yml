@@ -5,9 +5,11 @@ command:
     npmrc:
       host: "~/.npmrc"
       container: "/home/riptide/.npmrc"
+      type: file
     yarnrc:
       host: "~/.yarnrc"
       container: "/home/riptide/.yarnrc"
+      type: file
     yarn:
       host: "~/.yarn"
       container: "/home/riptide/.yarn"
