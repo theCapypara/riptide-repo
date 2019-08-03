@@ -1,0 +1,17 @@
+command:
+  image: node
+  command: yarn
+  additional_volumes:
+    npmrc:
+      host: "~/.npmrc"
+      container: "/home/riptide/.npmrc"
+    yarnrc:
+      host: "~/.yarnrc"
+      container: "/home/riptide/.yarnrc"
+    yarn:
+      host: "~/.yarn"
+      container: "/home/riptide/.yarn"
+    ssh:
+      host: "~/.ssh"
+      container: "{{ home_path() }}/.ssh"
+      mode: "ro"

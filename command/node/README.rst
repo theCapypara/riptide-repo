@@ -11,16 +11,16 @@ Node.js
 
 Latest Node.js version. Change image tag for other versions.
 
-``/command/node/8``
+``/command/node/X``
 -------------------
 
 **Based on**: /command/node/base
 
-Node.js version 8.
+Different Node.jS versions. Available versions:
 
-``/command/node/10``
---------------------
+- 8
+- 10
+- 11
+- 12
 
-**Based on**: /command/node/base
-
-Node.js version 10.
+Other versions can be used by changing the version of the image.

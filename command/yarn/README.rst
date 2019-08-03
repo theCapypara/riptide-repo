@@ -1,12 +1,12 @@
 NPM
 ===
 
-NPM_ Node.js package manager.
+Yarn_ Node.js package manager.
 
 This command template can also be used for other Node.js commands (by changing the command), if they
-require access to the npm cache.
+require access to the yarn cache.
 
-.. _npm: https://www.npmjs.com/
+.. _npm: https://yarnpkg.com/
 
 ..  contents:: Index
     :depth: 2
@@ -14,7 +14,7 @@ require access to the npm cache.
 ``/command/npm/base``
 ----------------------
 
-Latest NPM version with the latest Node.js version.
+Latest Yarn version with the latest Node.js version.
 
 Additional volumes
 ~~~~~~~~~~~~~~~~~~
@@ -22,9 +22,9 @@ Additional volumes
 +-----------------------+-----------------------------+---------------------------------------------+-------------+--------------------+
 | Name                  | Source                      | Source path                                 | Target path | Description        |
 +=======================+=============================+=============================================+=============+====================+
-| npm                   | Home directory              | ~/.npm                                      | ~/.npm      | NPM cache          |
+| yarn                  | Home directory              | ~/.yarn                                     | ~/.yarn     | Yarn cache         |
 +-----------------------+-----------------------------+---------------------------------------------+-------------+--------------------+
-| npmrc                 | Home directory              | ~/.npmrc                                    | ~/.npmrc    | NPM config         |
+| yarnrc                | Home directory              | ~/.yarnrc                                   | ~/.yarnrc   | Yarn config        |
 +-----------------------+-----------------------------+---------------------------------------------+-------------+--------------------+
 | ssh                   | Home directory              | ~/.ssh                                      | ~/.ssh      | SSH configuration  |
 +-----------------------+-----------------------------+---------------------------------------------+-------------+--------------------+
@@ -34,7 +34,7 @@ Additional volumes
 
 **Based on**: /command/npm/base
 
-Latest NPM with different Node.js versions. Avaiable Node.js versions:
+Latest Yarn with different Node.js versions. Avaiable Node.js versions:
 
 - 8
 - 10
