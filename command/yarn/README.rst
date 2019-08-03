@@ -1,12 +1,12 @@
-NPM
-===
+Yarn
+====
 
 Yarn_ Node.js package manager.
 
 This command template can also be used for other Node.js commands (by changing the command), if they
 require access to the yarn cache.
 
-.. _npm: https://yarnpkg.com/
+.. _yarn: https://yarnpkg.com/
 
 ..  contents:: Index
     :depth: 2
