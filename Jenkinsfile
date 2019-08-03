@@ -9,6 +9,10 @@ pipeline {
         // TODO: Build test
 
         stage('Copy documentation') {
+            when {
+                // Only copy for master
+                expression { env.BRANCH_NAME == 'master' }
+            }
             // Copy the documentation of all services into the documentation repository
             steps {
                 dir("__riptide_docs") {
