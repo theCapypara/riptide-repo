@@ -83,6 +83,8 @@ app:
         - "bin/magento config:set --scope=default web/unsecure/base_url 'https://{{ parent().services.varnish.domain() }}/'"
         - "bin/magento config:set --scope=default web/secure/base_url 'https://{{ parent().services.varnish.domain() }}/'"
         - "bin/magento config:set --scope=default web/secure/offloader_header X-Forwarded-Proto"
+        # Load the database config via mageconfigsync
+        - "php vendor/bin/mageconfigsync load --env dev app/etc/config.yml"
         # Flush cache
         - "bin/magento cache:flush"
 

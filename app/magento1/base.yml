@@ -49,8 +49,9 @@ app:
         # NOTE: run_as_current_user is false with apache, so su must be used to execute post_start commands as user!
         # Wait for db
         - '                                 while ! magerun db:info; do sleep 1; done'
+        # Load the database config via mageconfigsync
+        - "su $(id -nu {{ os_user() }}) -c 'php vendor/bin/mageconfigsync load --env dev app/etc/config.yml'"
         - "su $(id -nu {{ os_user() }}) -c 'magerun cache:flush'"
-
     db:
       $ref: /service/mysql/5.6
       roles:
