@@ -1,0 +1,15 @@
+service:
+  # WARNING: Under Linux make sure to run "sudo sysctl -w vm.max_map_count=262144" before or ES will crash.
+  image: elasticsearch:latest
+  environment:
+    cluster.name: riptide-cluster
+    bootstrap.memory_lock: "true"
+    ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+  additional_volumes:
+    data:
+      host: "{{ volume_path() }}/data"
+      container: "/usr/share/elasticsearch/data"
+  logging:
+    stdout: true
+    stderr: true
+  allow_full_memlock: true
