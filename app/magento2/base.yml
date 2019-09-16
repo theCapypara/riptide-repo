@@ -76,7 +76,7 @@ app:
         env_php:
           from: assets/env.php
           to: '{{ get_working_directory() }}/app/etc/env.php'
-      post_start:
+      pre_start:
         # Wait for db
         - 'until bin/magento; do :; done'
         # Set basic database settings
