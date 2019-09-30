@@ -2,3 +2,12 @@
 command:
   image: "{{ parent().get_service_by_role('db').image }}"
   command: "mysql -h{{ parent().get_service_by_role('db')['$name'] }} -uroot -p{{ parent().get_service_by_role('db').driver.config.password }} {{ parent().get_service_by_role('db').driver.config.database }}"
+  # MySQL tries to physically move the history file, which only works if we mount an entire directory as volume
+  environment:
+    MYSQL_HISTFILE: "/home/riptide/history/mysql_history"
+  additional_volumes:
+    history:
+      host: "~/.riptide_mysql"
+      container: "/home/riptide/history"
+      type: "directory"
+
