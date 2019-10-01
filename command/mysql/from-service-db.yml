@@ -7,7 +7,6 @@ command:
     MYSQL_HISTFILE: "/home/riptide/history/mysql_history"
   additional_volumes:
     history:
-      host: "~/.riptide_mysql"
+      host: "{{ volume_path() }}/history"
       container: "/home/riptide/history"
       type: "directory"
-
