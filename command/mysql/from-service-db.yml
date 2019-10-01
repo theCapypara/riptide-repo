@@ -8,5 +8,5 @@ command:
   additional_volumes:
     history:
       host: "{{ volume_path() }}/history"
-      container: "/home/riptide/history"
+      container: "{{ home_path() }}/history"
       type: "directory"
