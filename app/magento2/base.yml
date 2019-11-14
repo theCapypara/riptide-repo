@@ -18,7 +18,7 @@ app:
         # 3. Run setup:upgrade
         riptide cmd magento setup:upgrade
 
-      Riptide set's only the default store's Base URLs (to http://{{ services.varnish.domain() }}).
+      Riptide set's only the default store's Base URLs (to http://{{ get_service_by_role("main").domain() }}).
 
       After that your Magento shop will be ready! Enjoy!
 
@@ -39,7 +39,7 @@ app:
 
         # 3. Install Magento using the CLI.
         riptide cmd magento setup:install \
-          --base-url=https://{{ services.varnish.domain() }}/ \
+          --base-url=https://{{ get_service_by_role("main").domain() }}/ \
           --db-host=db \
           --db-name={{ services.db.driver.config.database }} \
           --db-user=root  \
@@ -80,8 +80,8 @@ app:
         # Wait for db
         - 'until bin/magento; do :; done'
         # Set basic database settings
-        - "bin/magento config:set --scope=default web/unsecure/base_url 'https://{{ parent().services.varnish.domain() }}/'"
-        - "bin/magento config:set --scope=default web/secure/base_url 'https://{{ parent().services.varnish.domain() }}/'"
+        - "bin/magento config:set --scope=default web/unsecure/base_url 'https://{{ parent().get_service_by_role("main").domain() }}/'"
+        - "bin/magento config:set --scope=default web/secure/base_url 'https://{{ parent().get_service_by_role("main").domain() }}/'"
         - "bin/magento config:set --scope=default web/secure/offloader_header X-Forwarded-Proto"
         # Load the database config via mageconfigsync if installed
         - "php vendor/bin/mageconfigsync load --env dev app/etc/config.yml || true"
