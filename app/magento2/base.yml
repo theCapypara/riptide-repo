@@ -80,8 +80,8 @@ app:
         # Wait for db
         - 'until bin/magento; do :; done'
         # Set basic database settings
-        - "bin/magento config:set --scope=default web/unsecure/base_url 'https://{{ parent().get_service_by_role("main").domain() }}/'"
-        - "bin/magento config:set --scope=default web/secure/base_url 'https://{{ parent().get_service_by_role("main").domain() }}/'"
+        - "bin/magento config:set --scope=default web/unsecure/base_url 'https://{{ parent().get_service_by_role(\"main\").domain() }}/'"
+        - "bin/magento config:set --scope=default web/secure/base_url 'https://{{ parent().get_service_by_role(\"main\").domain() }}/'"
         - "bin/magento config:set --scope=default web/secure/offloader_header X-Forwarded-Proto"
         # Load the database config via mageconfigsync if installed
         - "php vendor/bin/mageconfigsync load --env dev app/etc/config.yml || true"
