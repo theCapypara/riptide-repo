@@ -106,7 +106,7 @@ app:
           to: '/etc/nginx/conf.d/default.conf'
       pre_start:
         # Wait for php (otherwise nginx crashes) :(
-        - "until ping -c5 php &>/dev/null; do :; done"
+          - "until getent hosts php >/dev/null 2>&1; do :; done"
 
     varnish:
       $ref: /service/varnish/4
