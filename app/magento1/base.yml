@@ -45,6 +45,10 @@ app:
         local_xml:
           from: assets/local.xml
           to: '{{ get_working_directory() }}/app/etc/local.xml'
+        magerun_config:
+          host: "~/.n98-magerun"
+          container: "{{ home_path() }}/.n98-magerun"
+          mode: "ro"
       post_start:
         # NOTE: run_as_current_user is false with apache, so su must be used to execute post_start commands as user!
         # Wait for db
@@ -77,15 +81,8 @@ app:
     php:
       $ref: /command/php/from-service
     magerun:
-      $ref: /command/php/from-service
+      in_service_with_role: php
       command: magerun
-      additional_volumes:
-        config:
-          host: "~/.n98-magerun"
-          container: "{{ home_path() }}/.n98-magerun"
-          mode: "ro"
-      config_from_roles:
-        - php
     n98-magerun:
       aliases: magerun
     mysql:
