@@ -63,6 +63,11 @@ app:
 
       You can change the settings in step 3 to your likings, see the installation guide at
         https://devdocs.magento.com/guides/v2.3/install-gde/install/cli/install-cli.html
+  unimportant_paths:
+    # These paths will not be updated on the host if the containers change files.
+    - pub
+    - var
+    - generated
   services:
     php:
       $ref: /service/php/7.2/fpm

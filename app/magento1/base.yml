@@ -34,6 +34,9 @@ app:
       Database User: root
 
       Database Password: {{ services.db.driver.config.password }}
+  unimportant_paths:
+    # These paths will not be updated on the host if the containers change files.
+    - var
   services:
     www:
       $ref: /service/php/7.2/apache
