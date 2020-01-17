@@ -15,7 +15,8 @@ service:
     config:
       php_ini:
         from: assets/php.ini
-        to: '/etc/php.d/z_riptide.ini'
+        # w to load before xdebug.ini
+        to: '/etc/php.d/w_riptide.ini'
       msmtprc:
         from: assets/msmtprc
         to: '/etc/msmtprc'
