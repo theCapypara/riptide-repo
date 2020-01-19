@@ -109,6 +109,7 @@ app:
         magento_nginx_conf:
           from: assets/magento-nginx.conf
           to: '/etc/nginx/conf.d/default.conf'
+      additional_volumes:
         magerun_config:
           host: "~/.n98-magerun2"
           container: "{{ home_path() }}/.n98-magerun2"
