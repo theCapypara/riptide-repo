@@ -20,10 +20,11 @@ service:
       xdebug_ini:
         from: assets/xdebug.ini
         to: '/usr/local/etc/php/conf.d/xdebug.ini'
+        force_recreate: true
       msmtprc:
         from: assets/msmtprc
         to: '/etc/msmtprc'
     additional_volumes:
       opcache:
-        host: "~/.php_riptide_opcache/xdebug_enabled"
+        host: "~/.php_riptide_opcache/xdebug_{% if system_config().get_plugin_flag('php-xdebug.enabled') %}enabled{% else %}disabled{% endif %}"
         container: "/opcache"
