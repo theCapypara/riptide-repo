@@ -4,6 +4,10 @@ command:
     composer:
       host: "~/.composer"
       container: "{{ home_path() }}/.composer"
+    composer_cache:
+      host: "~/.composer/cache"
+      container: "{{ home_path() }}/.composer/cache"
+      volume_name: "composer_cache"
     ssh:
       host: "~/.ssh"
       container: "{{ home_path() }}/.ssh"
