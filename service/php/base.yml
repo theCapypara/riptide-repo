@@ -28,3 +28,4 @@ service:
       opcache:
         host: "~/.php_riptide_opcache/xdebug_{% if system_config().get_plugin_flag('php-xdebug.enabled') %}enabled{% else %}disabled{% endif %}"
         container: "/opcache"
+        volume_name: "php_opcache__xdebug_{% if system_config().get_plugin_flag('php-xdebug.enabled') %}enabled{% else %}disabled{% endif %}"
