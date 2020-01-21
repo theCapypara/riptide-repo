@@ -5,5 +5,6 @@ command:
     tmp:
       host: '{{ get_tempdir() }}'
       container: '/tmp/'
+      volume_name: 'tmp'
   environment:
     COMPOSER_HOME: '{{ home_path() }}/.composer'

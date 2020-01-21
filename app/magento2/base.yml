@@ -63,6 +63,11 @@ app:
 
       You can change the settings in step 3 to your likings, see the installation guide at
         https://devdocs.magento.com/guides/v2.3/install-gde/install/cli/install-cli.html
+  unimportant_paths:
+    # These paths will not be updated on the host if the containers change files.
+    - '{{ services.php.working_directory }}/pub'
+    - '{{ services.php.working_directory }}/var'
+    - '{{ services.php.working_directory }}/generated'
   services:
     php:
       $ref: /service/php/7.2/fpm
@@ -104,6 +109,11 @@ app:
         magento_nginx_conf:
           from: assets/magento-nginx.conf
           to: '/etc/nginx/conf.d/default.conf'
+      additional_volumes:
+        magerun_config:
+          host: "~/.n98-magerun2"
+          container: "{{ home_path() }}/.n98-magerun2"
+          mode: "ro"
       pre_start:
         # Wait for php (otherwise nginx crashes) :(
           - "until getent hosts php >/dev/null 2>&1; do :; done"
@@ -149,15 +159,8 @@ app:
     php:
       $ref: /command/php/from-service
     magerun:
-      $ref: /command/php/from-service
+      in_service_with_role: php
       command: magerun2
-      additional_volumes:
-        config:
-          host: "~/.n98-magerun2"
-          container: "{{ home_path() }}/.n98-magerun2"
-          mode: "ro"
-      config_from_roles:
-        - php
     n98-magerun:
       aliases: magerun
     n98-magerun2:
@@ -167,9 +170,7 @@ app:
     mysql:
       $ref: /command/mysql/from-service-db
     magento:
-      $ref: /command/php/from-service
+      in_service_with_role: php
       command: "{{ parent().get_service_by_role('php').get_working_directory() }}/bin/magento"
-      config_from_roles:
-        - php
     composer:
       $ref: /command/composer/with-host-links
