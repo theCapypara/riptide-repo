@@ -65,9 +65,9 @@ app:
         https://devdocs.magento.com/guides/v2.3/install-gde/install/cli/install-cli.html
   unimportant_paths:
     # These paths will not be updated on the host if the containers change files.
-    - pub
-    - var
-    - generated
+    - '{{ services.php.working_directory }}/pub'
+    - '{{ services.php.working_directory }}/var'
+    - '{{ services.php.working_directory }}/generated'
   services:
     php:
       $ref: /service/php/7.2/fpm
