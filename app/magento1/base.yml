@@ -48,6 +48,7 @@ app:
         local_xml:
           from: assets/local.xml
           to: '{{ get_working_directory() }}/app/etc/local.xml'
+      additional_volumes:
         magerun_config:
           host: "~/.n98-magerun"
           container: "{{ home_path() }}/.n98-magerun"
