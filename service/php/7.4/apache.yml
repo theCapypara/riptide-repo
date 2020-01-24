@@ -1,0 +1,3 @@
+service:
+  $ref: ../base-apache
+  image: riptidepy/php:7.4-apache
