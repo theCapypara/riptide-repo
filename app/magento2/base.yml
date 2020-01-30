@@ -136,6 +136,10 @@ app:
         config:
           database: magento2
           password: magento2
+      config:
+        extra:
+          from: assets/mysql.cnf
+          to: /etc/mysql/conf.d/mysql.cnf
       logging:
         stdout: true
         stderr: true
