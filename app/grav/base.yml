@@ -1,0 +1,62 @@
+app:
+  name: magento2
+  import:
+    images:
+      target: "{{ services.php.working_directory }}/images"
+      name: Images
+    pages:
+      target: "{{ services.php.working_directory }}/user/pages"
+      name: CMS Pages
+    plugins:
+      target: "{{ services.php.working_directory }}/user/plugins"
+      name: Plugin Configuration
+  notices:
+    usage: >-
+      Run the following commands after the setup:
+
+         riptide cmd composer install --ignore-platform-reqs
+
+      Please note that the Riptide command "grav" should be used instead of bin/grav (riptide cmd grav / grav).
+
+    installation: >-
+      Please follow the instructions at https://learn.getgrav.org/16/basics/installation.
+
+  services:
+    php:
+      $ref: /service/php/7.2/apache
+      roles:
+        - src
+        - php
+        - main
+      logging:
+        stdout: true
+        stderr: true
+      config:
+        user_config:
+          from: assets/config_system.yaml
+          to: '{{ get_working_directory() }}/user/config/system.yaml'
+        security_config:
+          from: assets/security_config.yaml
+          to: '{{ get_working_directory() }}/user/config/security.yaml'
+        riptide_account:
+          from: assets/accounts_riptide.yaml
+          to: '{{ get_working_directory() }}/user/accounts/riptide.yaml'
+
+    mail:
+      roles:
+        # for php service:
+        - mail
+      $ref: /service/mailhog/latest
+
+  commands:
+    php:
+      $ref: /command/php/from-service
+    npm:
+      $ref: /command/npm/node12
+    node:
+      $ref: /command/node/12
+    grav:
+      in_service_with_role: php
+      command: '{{ parent().get_service_by_role("php").get_working_directory() }}/bin/grav'
+    composer:
+      $ref: /command/composer/with-host-links

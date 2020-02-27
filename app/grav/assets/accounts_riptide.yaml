@@ -1,0 +1,11 @@
+email: riptide@localhost
+access:
+  admin:
+    login: true
+    super: true
+  site:
+    login: true
+fullname: 'Riptide Admin'
+title: Auto-generated Riptide Admin User
+state: enabled
+password: "12345"
