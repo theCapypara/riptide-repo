@@ -9,9 +9,6 @@ service:
     data:
       host: "{{ volume_path() }}/data"
       container: "/usr/share/elasticsearch/data"
-    config:
-      host: "{{ volume_path() }}/config"
-      container: "/usr/share/elasticsearch/config"
   logging:
     stdout: true
     stderr: true
