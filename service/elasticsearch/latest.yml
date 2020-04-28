@@ -13,3 +13,6 @@ service:
     stdout: true
     stderr: true
   allow_full_memlock: true
+  run_as_current_user: false
+  pre_start:
+    - chown -R 1000:1000 /usr/share/elasticsearch/data
