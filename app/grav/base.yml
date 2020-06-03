@@ -14,7 +14,7 @@ app:
     usage: >-
       Run the following commands after the setup:
 
-         riptide cmd composer install --ignore-platform-reqs
+         riptide cmd composer install
 
       Please note that the Riptide command "grav" should be used instead of bin/grav (riptide cmd grav / grav).
 
