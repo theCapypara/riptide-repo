@@ -1,0 +1,62 @@
+app:
+  name: magento2-ee-2.4
+  $ref: ../with-elasticsearch
+  notices:
+    installation: >-
+      To install Magento run the following commands on the command line:
+
+        # 0. Download the Magento source code (replace with 'enterprise-edition' if you want):
+        mkdir -p <project_directory_root>/{{ parent().src }}
+        cd <project_directory_root>/{{ parent().src }}
+        riptide cmd composer create-project --repository=https://repo.magento.com magento/project-community-edition ./{{ services.php.working_directory }}
+
+        # 1. Dump the autoloader
+        cd ./{{ services.php.working_directory }}
+        riptide cmd composer dump-autoload
+
+        # 2. Start the database and redis and elasticsearch
+        riptide start -s redis,db,elasticsearch
+
+        # 2b. Create or replace with env.php with an empty array (Riptide autogenerates it,
+        #     but if there is any non-empty content in it during the installation, it will fail).
+        echo "<?php
+        return [];" > ./app/etc/env.php
+
+        # 3. Install Magento using the CLI.
+        riptide cmd magento setup:install \
+          --base-url=https://{{ get_service_by_role("magento_front").domain() }}/ \
+          --db-host=db \
+          --db-name={{ services.db.driver.config.database }} \
+          --db-user=root  \
+          --db-password={{ services.db.driver.config.password }} \
+          --admin-firstname=Admin \
+          --admin-lastname=Admin \
+          --admin-email=email@yourcompany.com \
+          --admin-user=admin \
+          --admin-password=admin123 \
+          --language=en_US \
+          --currency=USD \
+          --timezone=America/Chicago \
+          --use-rewrites=1 \
+          --search-engine=elasticsearch7 \
+          --elasticsearch-host=elasticsearch
+
+
+        # 3b. Delete the env.php, Riptide will regenerate it.
+        rm ./app/etc/env.php
+
+        # 4. (Optional) install sample data
+        riptide cmd magento sampledata:deploy
+
+        # 5. Run setup:upgrade
+        riptide restart -s redis
+        riptide cmd magento setup:upgrade
+
+      You can change the settings in step 3 to your likings, see the installation guide at
+        https://devdocs.magento.com/guides/v2.4/install-gde/install/cli/install-cli.html
+
+  services:
+    php:
+      config:
+        env_php:
+          from: assets/2.4/env.php
