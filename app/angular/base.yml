@@ -1,0 +1,25 @@
+app:
+  name: angular
+  notices:
+    usage: Run `riptide cmd npm install` before starting the project.
+  services:
+    www:
+      image: node:12
+      roles:
+        - main
+        - src
+      port: 4200
+      command: node_modules/.bin/ng serve --host 0.0.0.0 --public-host {{ domain() }} --disable-host-check
+      logging:
+        stdout: true
+        stderr: true
+  commands:
+    node:
+      $ref: /command/node/12
+    npm:
+      $ref: /command/npm/node12
+    yarn:
+      $ref: /command/yarn/node12
+    ng:
+      $ref: /command/node/12
+      command: node_modules/.bin/ng
