@@ -6,6 +6,7 @@ service:
     cluster.name: riptide-cluster
     discovery.type: "single-node"
     ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+  port: 9200
   additional_volumes:
     data:
       host: "{{ volume_path() }}/data"
