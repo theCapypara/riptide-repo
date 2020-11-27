@@ -119,5 +119,16 @@ return [
             'host' => '{{ parent().services.varnish["$name"] }}',
             'port' => '{{ parent().services.varnish.port }}'
         ]
+    ],
+    'system' => [
+        'default' => [
+            'catalog' => [
+                'search' => [
+                    'engine' => 'elasticsearch7',
+                    'elasticsearch7_server_hostname' => 'elasticsearch',
+                    'elasticsearch7_server_port' => 9200,
+                ]
+            ]
+        ]
     ]
 ];
