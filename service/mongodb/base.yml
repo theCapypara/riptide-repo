@@ -1,0 +1,10 @@
+service:
+  image: mongo
+  roles:
+    - db
+  driver:
+    name: mongo
+    config:
+      database: riptide
+      password: mongo
+  run_as_current_user: false
