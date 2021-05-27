@@ -1,3 +1,6 @@
 app:
   name: magento2-ce-2.3
   $ref: ../base
+  services:
+    varnish:
+      $ref: /service/varnish/4
