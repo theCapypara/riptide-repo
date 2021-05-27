@@ -125,7 +125,7 @@ app:
         - magento_front
       config:
         vcl:
-          from: assets/varnish.vcl
+          from: assets/2.4/varnish.vcl
       logging:
         stdout: true
         stderr: true
