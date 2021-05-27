@@ -18,10 +18,8 @@ backend default {
    }
 }
 
-acl purge {
-    "localhost";
-    "www";
-}
+# Purge ACL rule removed, because the IP of the www-container is not certain in the cluster.
+# But since the varnish container is only accessible by trusted containers, this is not an issue.
 
 sub vcl_recv {
     if (req.restarts > 0) {
@@ -29,9 +27,6 @@ sub vcl_recv {
     }
 
     if (req.method == "PURGE") {
-        if (client.ip !~ purge) {
-            return (synth(405, "Method not allowed"));
-        }
         # To use the X-Pool header for purging varnish during automated deployments, make sure the X-Pool header
         # has been added to the response in your backend server config. This is used, for example, by the
         # capistrano-magento2 gem for purging old content from varnish during it's deploy routine.
