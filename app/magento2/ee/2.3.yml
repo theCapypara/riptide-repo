@@ -4,3 +4,6 @@ app:
   services:
     varnish:
       $ref: /service/varnish/4
+      config:
+        vcl:
+          from: assets/varnish.vcl
