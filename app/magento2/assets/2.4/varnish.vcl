@@ -9,13 +9,6 @@ backend default {
     .host = "{{ parent().get_service_by_role('varnish')['$name'] }}";
     .port = "80";
     .first_byte_timeout = 600s;
-    .probe = {
-        .url = "/pub/health_check.php";
-        .timeout = 2s;
-        .interval = 5s;
-        .window = 10;
-        .threshold = 5;
-   }
 }
 
 # Purge ACL rule removed, because the IP of the www-container is not certain in the cluster.
