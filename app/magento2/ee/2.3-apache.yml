@@ -6,4 +6,4 @@ app:
       $ref: /service/varnish/4
       config:
         vcl:
-          from: assets/varnish.vcl
+          from: assets/4.vcl
