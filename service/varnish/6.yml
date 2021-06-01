@@ -8,7 +8,7 @@ service:
       varnish: varnishlog
   config:
     vcl:
-      from: assets/default.vcl
+      from: assets/6.vcl
       to: /etc/varnish/default.vcl
   run_as_current_user: false
   pre_start:
