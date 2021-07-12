@@ -5,4 +5,8 @@ service:
     environment:
       APACHE_RUN_USER: '#{{ os_user() }}'
       APACHE_RUN_GROUP: '#{{ os_group() }}'
+    logging:
+      paths:
+        apache-error: /var/log/apache2/error.log
+        apache-access: /var/log/apache2/access.log
     run_as_current_user: false
