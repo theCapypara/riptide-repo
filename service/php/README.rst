@@ -47,10 +47,10 @@ Environment variables
 +------------------+-----------+-----------------------------------------------------------------------+-----------------------------------------------------+-------------------------------+
 | Key              | Required? | Already set?                                                          | Example Value(s)                                    | Description                   |
 +==================+===========+=======================================================================+=====================================================+===============================+
-| XDEBUG_CONFIG    | no        | yes, (default: "remote_host={{ host_address() }}")                    | remote_host={{ host_address() }                     | Configuration for Xdebug_     |
-+------------------+-----------+-----------------------------------------------------------------------+-----------------------------------------------------+-------------------------------+
 | PHP_IDE_CONFIG   | no        | yes, (default: "serverName=riptide-{{ parent().parent().name }}")     | serverName=riptide-{{ parent().parent().name }}     | `PhpStorm path mapping key`_  |
 +------------------+-----------+-----------------------------------------------------------------------+-----------------------------------------------------+-------------------------------+
+
+Note: ``XDEBUG_CONFIG`` that was present here before was removed. The config set there has been moved to the xdebug.ini. Add additional information via PHP INI files.
 
 Config
 ~~~~~~
