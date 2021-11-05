@@ -1,0 +1,37 @@
+# THIS FILE IS OVERWRITTEN BY RIPTIDE.
+# Please adjust the "env" config file template provided by the php service.
+
+# The environment Craft is currently running in ("dev", "staging", "production", etc.)
+ENVIRONMENT="dev"
+# The secure key Craft will use for hashing and encrypting data
+SECURITY_KEY="{{ parent().get_service_by_role("php").environment.SECURITY_KEY }}"
+# The database driver that will be used ("mysql" or "pgsql")
+DB_DRIVER="mysql"
+# The database server name or IP address (usually this is "localhost" or "127.0.0.1")
+DB_SERVER="db"
+# The database username to connect with
+DB_USER="root"
+# The database password to connect with
+DB_PASSWORD="{{ parent().get_service_by_role("db").driver.config.password }}"
+# The name of the database to select
+DB_DATABASE="{{ parent().get_service_by_role("db").driver.config.database }}"
+# The database schema that will be used (PostgreSQL only)
+DB_SCHEMA="public"
+# The prefix that should be added to generated table names (only necessary if multiple things are sharing the same database)
+DB_TABLE_PREFIX="{{ parent().get_service_by_role("php").environment.DB_TABLE_PREFIX }}"
+# The port to connect to the database with. Will default to 5432 for PostgreSQL and 3306 for MySQL.
+DB_PORT="3306"
+# Redis settings
+REDIS_HOST="redis"
+# Environmental Constants
+SYSTEM_NAME="{{ parent().get_service_by_role("php").environment.SYSTEM_NAME }}"
+APP_ID="Craft"
+SITE_URL_DEFAULT="https://{{ parent().get_service_by_role("main").domain() }}"
+DEFAULT_SITE_URL="https://{{ parent().get_service_by_role("main").domain() }}"
+ASSET_BASE_URL="https://{{ parent().get_service_by_role("main").domain() }}/uploads/images"
+ASSET_BASE_PATH="@webroot/uploads/images/"
+SYSTEM_EMAIL_ADDRESS="craft@riptide.local"
+EMAIL_SENDER_NAME="craft@riptide.local"
+HOST_NAME=""
+SMTP_USERNAME=""
+SMTP_PASSWORD=""

@@ -1,0 +1,97 @@
+app:
+  name: craft
+  import:
+    uploads:
+      target: "{{ services.www.working_directory }}/web/uploads"
+      name: Images and Assets
+  notices:
+    usage: >-
+      After setup, run "composer install" and you are pretty much good to go.
+      
+      No ".env" file is needed, Riptide will generate one on first start of the www service.
+
+      To use Redis for cache, follow the official guide on how to configure Redis for Craft and
+      make sure the redis hostname is read from the environment variable REDIS_HOST.
+    
+      In order to use Varnish, install the plugin Upper with default configuration.
+      
+    installation: >-
+      To install Craft, follow the official installation documentation, but use the
+      services and commands provided in this Riptide app to run and manage the application,
+      instead of Docker Compose / Nitro.
+
+      Don't run "craft setup" locally, since all the environment things are already set up.
+      Run "craft install" to finish database installation.
+  services:
+    www:
+      # 7.4
+      $ref: /service/php/7.4/fpm
+      # Unlike the default fpm php service, this image also includes
+      # a full nginx web server:
+      image: craftcms/nginx:7.4-dev
+      roles:
+        - src
+        - main
+        - php
+        #- varnish
+      port: 8080
+      logging:
+        stdout: true
+        stderr: true
+        paths:
+          nginx-error: /var/log/nginx/error.log
+          nginx-access: /var/log/nginx/access.log
+      config:
+        _empty:
+          # This prevents Xdebug from always being enabled.
+          from: assets/empty
+          to: '/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini'
+        xdebug_ini:
+          to: '/usr/local/etc/php/conf.d/craft-cms-xdebug.ini'
+          force_recreate: true
+        env:
+          from: assets/env
+          to: '{{ get_working_directory() }}/.env'
+          force_recreate: true
+        nginx_conf:
+          from: assets/nginx.conf
+          to: '/etc/nginx/nginx.conf'
+        craft_nginx_conf:
+          from: assets/default.conf
+          to: '/etc/nginx/conf.d/default.conf'
+      environment:
+        SECURITY_KEY: foobar
+        SYSTEM_NAME: Craft CMS Boilerplate [dev]
+        RIPTIDE_XDEBUG_VERSION: "3"
+      run_as_current_user: true
+    db:
+      $ref: /service/mysql/5.7
+      driver:
+        config:
+          database: craft
+          password: craft
+      logging:
+        stdout: true
+        stderr: true
+    redis:
+      $ref: /service/redis/4.0
+    #varnish:
+    mail:
+      $ref: /service/mailhog/latest
+      roles:
+        # for php service:
+        - mail
+  commands:
+    php:
+      $ref: /command/php/from-service
+      # We need to use the Craft CLI image here
+      image: craftcms/cli:7.4-dev
+    craft:
+      $ref: /command/php/from-service
+      # We need to use the Craft CLI image here
+      image: craftcms/cli:7.4-dev
+      command: "{{ parent().get_service_by_role('php').get_working_directory() }}/craft"
+    mysql:
+      $ref: /command/mysql/from-service-db
+    composer:
+      $ref: /command/composer/with-host-links
