@@ -23,6 +23,9 @@ DB_TABLE_PREFIX="{{ parent().get_service_by_role("php").environment.DB_TABLE_PRE
 DB_PORT="3306"
 # Redis settings
 REDIS_HOST="redis"
+# Upper / Varnish
+UPPER_DRIVER="varnish"
+VARNISH_URL="http://varnish"
 # Environmental Constants
 SYSTEM_NAME="{{ parent().get_service_by_role("php").environment.SYSTEM_NAME }}"
 APP_ID="Craft"

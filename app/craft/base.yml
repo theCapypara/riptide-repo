@@ -14,7 +14,7 @@ app:
       make sure the redis hostname is read from the environment variable REDIS_HOST.
     
       In order to use Varnish, install the plugin Upper with default configuration.
-      
+
     installation: >-
       To install Craft, follow the official installation documentation, but use the
       services and commands provided in this Riptide app to run and manage the application,
@@ -23,6 +23,18 @@ app:
       Don't run "craft setup" locally, since all the environment things are already set up.
       Run "craft install" to finish database installation.
   services:
+    varnish:
+      $ref: /service/varnish/6
+      # This image also includes xkey
+      image: ghcr.io/plopix/docker-varnish6/varnish6:latest
+      roles:
+        - main
+      config:
+        vcl:
+          from: assets/varnish.vcl
+      logging:
+        stdout: true
+        stderr: true
     www:
       # 7.4
       $ref: /service/php/7.4/fpm
@@ -33,7 +45,7 @@ app:
         - src
         - main
         - php
-        #- varnish
+        - varnish
       port: 8080
       logging:
         stdout: true
@@ -75,7 +87,6 @@ app:
         stderr: true
     redis:
       $ref: /service/redis/4.0
-    #varnish:
     mail:
       $ref: /service/mailhog/latest
       roles:
