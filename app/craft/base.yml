@@ -2,7 +2,7 @@ app:
   name: craft
   import:
     uploads:
-      target: "{{ services.www.working_directory }}/web/uploads"
+      target: "{{ services.cwww.working_directory }}/web/uploads"
       name: Images and Assets
   notices:
     usage: >-
