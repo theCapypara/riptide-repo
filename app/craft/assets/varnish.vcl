@@ -27,6 +27,11 @@ sub vcl_recv {
     return(pass);
   }
 
+  # Exclude the GraphQL API
+  if (req.url ~ "(\/{{ parent().get_service_by_role('varnish').environment.GRAPHQL_API }}|p={{ parent().get_service_by_role('varnish').environment.GRAPHQL_API }})(.*)") {
+    return(pass);
+  }
+
   # Allow purging
   if (req.method == "PURGE" || req.method == "BAN") {
     set req.http.n-gone = xkey.purge(req.http.xkey-purge);

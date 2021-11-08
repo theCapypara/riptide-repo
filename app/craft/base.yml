@@ -72,6 +72,8 @@ app:
           from: assets/default.conf
           to: '/etc/nginx/conf.d/default.conf'
       environment:
+        CPTRIGGER: admin
+        GRAPHQL_API: graphql
         SECURITY_KEY: foobar
         SYSTEM_NAME: Craft CMS Boilerplate [dev]
         RIPTIDE_XDEBUG_VERSION: "3"
