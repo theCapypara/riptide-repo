@@ -23,7 +23,7 @@ app:
       Don't run "craft setup" locally, since all the environment things are already set up.
       Run "craft install" to finish database installation.
   services:
-    varnish:
+    cvarnish:
       $ref: /service/varnish/6
       # This image also includes xkey
       image: ghcr.io/plopix/docker-varnish6/varnish6:latest
@@ -35,7 +35,7 @@ app:
       logging:
         stdout: true
         stderr: true
-    www:
+    cwww:
       # 7.4
       $ref: /service/php/7.4/fpm
       # Unlike the default fpm php service, this image also includes
@@ -76,7 +76,7 @@ app:
         SYSTEM_NAME: Craft CMS Boilerplate [dev]
         RIPTIDE_XDEBUG_VERSION: "3"
       run_as_current_user: true
-    db:
+    cdb:
       $ref: /service/mysql/5.7
       driver:
         config:
@@ -85,9 +85,9 @@ app:
       logging:
         stdout: true
         stderr: true
-    redis:
+    credis:
       $ref: /service/redis/4.0
-    mail:
+    cmail:
       $ref: /service/mailhog/latest
       roles:
         # for php service:

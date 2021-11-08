@@ -38,8 +38,8 @@ Imports
 Services
 ~~~~~~~~
 
-varnish
-+++++++
+cvarnish
+++++++++
 
 **Based on**: `/service/varnish/6 <https://github.com/Parakoopa/riptide-repo/tree/master/service/varnish>`_
 **Image**: ``ghcr.io/plopix/docker-varnish6/varnish6:latest``
@@ -62,8 +62,8 @@ Config
 +-----+--------------------------+---------------------+-------------------------------+
 
 
-web
-+++
+cwww
+++++
 
 **Based on**: `/service/php/7.4/fpm <https://github.com/Parakoopa/riptide-repo/tree/master/service/php>`_
 **Image:** ``craftcms/nginx:7.4-dev``
@@ -99,8 +99,8 @@ You can extend the Craft CMS Nginx server configuration by adding additional con
 | craft_nginx_conf      | /etc/nginx/conf.d/default.conf                          | no                             | Craft nginx server config, based on official image, change for base path           |
 +-----------------------+---------------------------------------------------------+--------------------------------+------------------------------------------------------------------------------------+
 
-mail
-++++
+cmail
++++++
 
 **Based on**: `/service/mailhog/latest <https://github.com/Parakoopa/riptide-repo/tree/master/service/mailhog>`_
 
@@ -113,15 +113,15 @@ Roles
 
 Role required for PHP service.
 
-redis
-+++++
+credis
+++++++
 
 **Based on**: `/service/redis/latest <https://github.com/Parakoopa/riptide-repo/tree/master/service/redis>`_
 
 Redis, used for Cache.
 
-db
-++
+cdb
++++
 
 **Based on**: `/service/mysql/5.7 <https://github.com/Parakoopa/riptide-repo/tree/master/service/mysql>`_
 
