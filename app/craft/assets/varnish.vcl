@@ -201,11 +201,6 @@ sub vcl_backend_response {
     unset beresp.http.set-cookie;
   }
 
-  # Removes Crafts Set-Cookie on everything except admin and action url's
-  if (!(bereq.url ~ "(\/admin|p=admin)(.*)" || bereq.url ~ "^/actions(.*)" || bereq.url ~ "^/index.php/actions(.*)")) {
-    unset beresp.http.set-cookie;
-  }
-
   # Large static files are delivered directly to the end-user without
   # waiting for Varnish to fully read the file first.
   # Varnish 4 fully supports Streaming, so use streaming here to avoid locking.
