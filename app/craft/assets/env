@@ -8,7 +8,7 @@ SECURITY_KEY="{{ parent().get_service_by_role("php").environment.SECURITY_KEY }}
 # The database driver that will be used ("mysql" or "pgsql")
 DB_DRIVER="mysql"
 # The database server name or IP address (usually this is "localhost" or "127.0.0.1")
-DB_SERVER="db"
+DB_SERVER="cdb"
 # The database username to connect with
 DB_USER="root"
 # The database password to connect with
@@ -22,10 +22,10 @@ DB_TABLE_PREFIX="{{ parent().get_service_by_role("php").environment.DB_TABLE_PRE
 # The port to connect to the database with. Will default to 5432 for PostgreSQL and 3306 for MySQL.
 DB_PORT="3306"
 # Redis settings
-REDIS_HOST="redis"
+REDIS_HOST="credis"
 # Upper / Varnish
 UPPER_DRIVER="varnish"
-VARNISH_URL="http://varnish"
+VARNISH_URL="http://cvarnish"
 # Environmental Constants
 SYSTEM_NAME="{{ parent().get_service_by_role("php").environment.SYSTEM_NAME }}"
 APP_ID="Craft"
