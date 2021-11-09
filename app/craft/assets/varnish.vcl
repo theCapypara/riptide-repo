@@ -236,6 +236,11 @@ sub vcl_backend_response {
     return (pass);
   }
 
+  # Don't cache 40x responses
+  if (beresp.status == 400 || beresp.status == 401 || beresp.status == 403 || beresp.status == 404) {
+    return (pass);
+  }
+
   # Allow stale content, in case the backend goes down.
   # make Varnish keep all objects for 6 hours beyond their TTL
   set beresp.grace = 6h;
