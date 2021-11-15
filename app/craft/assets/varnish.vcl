@@ -82,6 +82,11 @@ sub vcl_recv {
     set req.url = regsub(req.url, "\?$", "");
   }
 
+  # Skip the cache, if the Craft SessionId cookie is set
+  if (req.http.Cookie ~ "SessionId") {
+    return (pass);
+  }
+
   # Remove ALL cookies
   unset req.http.Cookie;
 
