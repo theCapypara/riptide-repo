@@ -38,3 +38,11 @@ EMAIL_SENDER_NAME="craft@riptide.local"
 HOST_NAME=""
 SMTP_USERNAME=""
 SMTP_PASSWORD=""
+# You can add extra envrionment variables to this file,
+# by adding them prefixed with CEXTRA_ to the environment
+# of the cwww service.
+{% for key, val in environment.items() %}
+{% if key.startswith('CEXTRA_') %}
+{{ key[7:] }}="{{ val }}"
+{% endif %}
+{% endfor %}
