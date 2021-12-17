@@ -70,7 +70,7 @@ app:
     - '{{ services.php.working_directory }}/generated'
   services:
     php:
-      $ref: /service/php/7.2/fpm
+      $ref: /service/php/7.4/fpm
       roles:
         - src
         - php
@@ -119,13 +119,13 @@ app:
           - "until getent hosts php >/dev/null 2>&1; do :; done"
 
     varnish:
-      $ref: /service/varnish/4
+      $ref: /service/varnish/6
       roles:
         - main
         - magento_front
       config:
         vcl:
-          from: assets/varnish.vcl
+          from: assets/6.vcl
       logging:
         stdout: true
         stderr: true
