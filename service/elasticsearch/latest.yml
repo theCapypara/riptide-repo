@@ -17,3 +17,7 @@ service:
   run_as_current_user: false
   pre_start:
     - chown -R 1000:1000 /usr/share/elasticsearch/data
+  config:
+    elasticyaml:
+      from: assets/elasticsearch.yml
+      to: /usr/share/elasticsearch/config/elasticsearch.yml
