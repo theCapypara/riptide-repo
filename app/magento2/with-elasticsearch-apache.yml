@@ -3,4 +3,4 @@ app:
   services:
     elasticsearch:
       $ref: /service/elasticsearch/latest
-      image: elasticsearch:7.6.2
+      image: elasticsearch:7.16.1
