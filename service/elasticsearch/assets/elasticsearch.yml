@@ -1,3 +1,6 @@
 cluster.name: "docker-cluster"
 network.host: 0.0.0.0
 discovery.type: single-node
+
+# only for development
+cluster.routing.allocation.disk.threshold_enabled: false
