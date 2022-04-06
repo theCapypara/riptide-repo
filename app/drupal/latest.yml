@@ -1,0 +1,55 @@
+app:
+  name: drupal
+  import:
+    default_files:
+      target: "{{ services.dwww.working_directory }}/sites/default/files"
+      name: Files for default site
+  services:
+    dwww:
+      $ref: /service/nginx/latest
+      roles:
+        - src
+        - main
+      config:
+        drupal_nginx_conf:
+          from: assets/drupal-nginx.conf
+          to: '/etc/nginx/conf.d/default.conf'
+        settings:
+          from: assets/settings.php
+          to: '{{ get_working_directory() }}/sites/default/settings.php'
+      logging:
+        stdout: true
+        stderr: true
+    dphp:
+      $ref: /service/php/7.4/fpm
+      roles:
+        - src
+        - php
+      config:
+        settings:
+          from: assets/settings.php
+          to: '{{ get_working_directory() }}/sites/default/settings.php'
+      logging:
+        stdout: true
+        stderr: true
+    ddb:
+      $ref: /service/mysql/5.7
+      driver:
+        config:
+          database: drupal
+          password: drupal
+      logging:
+        stdout: true
+        stderr: true
+    mail:
+      roles:
+        # for php service:
+        - mail
+      $ref: /service/mailhog/latest
+  commands:
+    php:
+      $ref: /command/php/from-service
+    mysql:
+      $ref: /command/mysql/from-service-db
+    drush:
+      image: drush/drush
