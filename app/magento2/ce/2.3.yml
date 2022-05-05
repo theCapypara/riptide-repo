@@ -1,7 +1,17 @@
 app:
   name: magento2-ce-2.3
   $ref: ../base
+  commands:
+    composer:
+      image: 'riptidepy/php:7.2-cli'
+    magento:
+      environment:
+        MFTF_DEBUG: "true"
   services:
+    php:
+      $ref: /service/php/7.2/fpm
+      environment:
+        MFTF_DEBUG: "true"
     varnish:
       $ref: /service/varnish/4
       config:

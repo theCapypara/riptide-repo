@@ -164,7 +164,7 @@ app:
       $ref: /command/php/from-service
     magerun:
       in_service_with_role: php
-      command: magerun2
+      command: "php -dmemory_limit=-1 $(which magerun2)"
     n98-magerun:
       aliases: magerun
     n98-magerun2:
@@ -175,6 +175,6 @@ app:
       $ref: /command/mysql/from-service-db
     magento:
       in_service_with_role: php
-      command: "{{ parent().get_service_by_role('php').get_working_directory() }}/bin/magento"
+      command: "php -dmemory_limit=-1 {{ parent().get_service_by_role('php').get_working_directory() }}/bin/magento"
     composer:
       $ref: /command/composer/v2-with-host-links
