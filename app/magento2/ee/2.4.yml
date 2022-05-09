@@ -60,3 +60,7 @@ app:
       config:
         env_php:
           from: assets/2.4/env.php
+
+  commands:
+    composer:
+      $ref: /command/composer/v2-with-host-links
