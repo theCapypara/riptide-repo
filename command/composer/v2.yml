@@ -1,0 +1,11 @@
+command:
+  image: 'riptidepy/php:7.4-cli'  # Use 'composer' instead for up to date composer (but without any PHP extensions)
+  command: composer
+  additional_volumes:
+    tmp:
+      host: '{{ get_tempdir() }}'
+      container: '/tmp/'
+      volume_name: 'tmp'
+  environment:
+    COMPOSER_HOME: '{{ home_path() }}/.config/composer'
+    COMPOSER_CACHE_DIR: '{{ home_path() }}/.cache/composer'
