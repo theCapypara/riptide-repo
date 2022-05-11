@@ -1,0 +1,4 @@
+command:
+  command: /usr/local/bin/redis-cli
+  in_service_with_role: redis
+
