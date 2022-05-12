@@ -177,4 +177,4 @@ app:
       in_service_with_role: php
       command: "{{ parent().get_service_by_role('php').get_working_directory() }}/bin/magento"
     composer:
-      $ref: /command/composer/with-host-links
+      $ref: /command/composer/v2-with-host-links
