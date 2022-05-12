@@ -178,3 +178,5 @@ app:
       command: "{{ parent().get_service_by_role('php').get_working_directory() }}/bin/magento"
     composer:
       $ref: /command/composer/with-host-links
+    redis-cli:
+      $ref: /command/redis-cli/base
