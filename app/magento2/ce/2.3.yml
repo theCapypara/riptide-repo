@@ -1,6 +1,31 @@
 app:
   name: magento2-ce-2.3
   $ref: ../base
+  notices:
+    usage: >-
+      After this setup, run the following commands to finish up:
+
+        # 1. Install Composer modules
+        cd <project>/{{ parent().src }}/{{ services.php.working_directory }}
+        riptide cmd composer install
+
+        # 2. Start the database and redis
+        riptide start -s redis,db
+
+        # 3. Run setup:upgrade
+        riptide cmd magento setup:upgrade
+
+      Riptide set's only the default store's Base URLs (to http://{{ get_service_by_role("magento_front").domain() }}).
+
+      After that your Magento shop will be ready! Enjoy!
+
+
+      KNOWN ISSUES WITH 2.3:
+
+      - PHP Fatal error: Uncaught Error: Cannot instantiate interface Magento\InventoryCatalogApi\Api\DefaultStockProviderInterface in /src/vendor/magento/framework/ObjectManager/Factory/Dynamic/Developer.php:50
+       - restart redis if this error occurs and repeat
+      - The XML in file "/src/vendor/magento/module-inventory-catalog/etc/communication.xml" is invalid: Element 'topic', attribute 'is_synchronous': The attribute 'is_synchronous' is not allowed.
+        - remove attribute from all mentioned files and repeat (occures several times)
   commands:
     composer:
       image: 'riptidepy/php:7.2-cli'
