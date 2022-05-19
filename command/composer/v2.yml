@@ -1,5 +1,5 @@
 command:
-  image: 'riptidepy/php:7.4-cli'  # Use 'composer' instead for up to date composer (but without any PHP extensions)
+  image: 'riptidepy/php:8.1-cli-composer2'  # Use 'composer' instead for up to date composer (but without any PHP extensions)
   command: composer
   additional_volumes:
     tmp:
