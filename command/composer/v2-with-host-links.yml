@@ -1,0 +1,14 @@
+command:
+  $ref: ./v2
+  additional_volumes:
+    composer:
+      host: "~/.config/composer"
+      container: "{{ home_path() }}/.config/composer"
+    composer_cache:
+      host: "~/.cache/composer"
+      container: "{{ home_path() }}/.cache/composer"
+      volume_name: "composer_cache"
+    ssh:
+      host: "~/.ssh"
+      container: "{{ home_path() }}/.ssh"
+      mode: "ro"

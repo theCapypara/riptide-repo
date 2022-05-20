@@ -7,3 +7,7 @@ app:
       config:
         vcl:
           from: assets/4.vcl
+
+  commands:
+    composer:
+      $ref: /command/composer/with-host-links
