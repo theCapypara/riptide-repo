@@ -93,3 +93,5 @@ app:
       $ref: /command/mysql/from-service-db
     composer:
       $ref: /command/composer/with-host-links
+    redis-cli:
+      $ref: /command/redis-cli/base
