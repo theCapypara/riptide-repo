@@ -5,6 +5,6 @@ command:
       PHP_IDE_CONFIG: 'serverName=riptide-{{ parent().parent().name }}'
     additional_volumes:
       opcache:
-        host: "~/.php_riptide_opcache/xdebug_{% if system_config().get_plugin_flag('php-xdebug.enabled') %}enabled{% else %}disabled{% endif %}"
+        host: "~/.cache/riptide/{{ parent().parent().name }}/{{ image }}/opcache/xdebug_{% if system_config().get_plugin_flag('php-xdebug.enabled') %}en{% else %}dis{% endif %}abled"
         container: "/opcache"
         volume_name: "php_opcache__xdebug_{% if system_config().get_plugin_flag('php-xdebug.enabled') %}enabled{% else %}disabled{% endif %}"
