@@ -12,7 +12,7 @@ require access to the npm cache.
     :depth: 2
 
 ``/command/npm/base``
-----------------------
+---------------------
 
 Latest NPM version with the latest Node.js version.
 
@@ -40,3 +40,15 @@ Latest NPM with different Node.js versions. Avaiable Node.js versions:
 - 10
 - 11
 - 12
+
+``/command/npm/in-shopify-service``
+-----------------------------------
+
+Running ``npm`` command in the service with role ``shopify``.
+
+Role Requirements
+~~~~~~~~~~~~~~~~~
+
+**Role**: ``shopify``
+
+This command requires another service that has the role ``shopify`` set.
