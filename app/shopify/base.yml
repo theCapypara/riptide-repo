@@ -22,3 +22,9 @@ app:
       $ref: /command/yarn/in-shopify-service
     node:
       $ref: /command/node/in-shopify-service
+    get-makefile:
+      command: cat /assets/Makefile
+      in_service_with_role: shopify
+    get-readme:
+      command: cat /assets/riptide.md
+      in_service_with_role: shopify
