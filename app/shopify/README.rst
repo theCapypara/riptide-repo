@@ -4,12 +4,7 @@ Shopify
 `Shopify App`_ App for Shopify E-commerce software.
 
 Get started quickly (after ``riptide setup``):
-
-``get-makefile > Makefile``
-
-``get-readme > README.md``
-
-Check the new ``README.md`` for further steps.
+Run ``riptide cmd setup``, then check ``shopify-app.md`` for further steps.
 
 .. _`Shopify App`: https://shopify.dev/apps
 

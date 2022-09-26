@@ -3,11 +3,11 @@ app:
 
   notices:
     usage: >-
-      Don't start the Shopify service, it will stop automatically. Use the Riptide commands, like described in the README.md.
+      Don't start the Shopify service, it will stop automatically. Use the Riptide commands, like described in the shopify-app.md.
       The commands won't work properly, if you have the service running.
       If you really want the container to keep running, e.g. to jump into it, use "riptide start -c keep_running".
     installation: >-
-      See README.md for setup steps.
+      Run riptide cmd setup, then check shopify-app.md for further steps.
 
   services:
     shopify:
