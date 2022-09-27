@@ -1,0 +1,4 @@
+command:
+  command: bash -c "cd /src && ./node_modules/.bin/shopify \"\$@\"" --
+  use_host_network: true
+  in_service_with_role: shopify

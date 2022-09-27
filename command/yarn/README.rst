@@ -40,3 +40,15 @@ Latest Yarn with different Node.js versions. Avaiable Node.js versions:
 - 10
 - 11
 - 12
+
+``/command/yarn/in-shopify-service``
+------------------------------------
+
+Running ``yarn`` command in the service with role ``shopify``.
+
+Role Requirements
+~~~~~~~~~~~~~~~~~
+
+**Role**: ``shopify``
+
+This command requires another service that has the role ``shopify`` set.

@@ -1,0 +1,36 @@
+service:
+  image: riptidepy/shopify:latest
+  command:
+    default: 'sleep 3'
+    keep_running: '$(while true; do sleep 1; done)'
+  roles:
+    - main
+    - shopify
+    - src
+  additional_volumes:
+    shopify_config:
+      container: /home/riptide/.config/shopify-cli-kit-nodejs
+      host: ~/.config/shopify-cli-kit-nodejs
+    shopify_cache:
+      container: /home/riptide/.cache/shopify-cli-nodejs
+      host: ~/.cache/shopify-cli-nodejs
+    ngrok_config:
+      container: /home/riptide/.config/ngrok
+      host: ~/.config/ngrok
+    yarn_cache:
+      container: /home/riptide/.cache/yarn
+      host: ~/.cache/yarn
+    npm_cache:
+      container: /home/riptide/.npm
+      host: ~/.npm
+    ssh:
+      container: /home/riptide/.ssh
+      host: ~/.ssh
+      mode: ro
+    tmp:
+      container: /tmp/
+      host: '{{ get_tempdir() }}'
+  working_directory: .
+  logging:
+    stdout: true
+    stderr: true
