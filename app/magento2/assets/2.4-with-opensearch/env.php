@@ -124,7 +124,7 @@ return [
         'default' => [
             'catalog' => [
                 'search' => [
-                    'engine' => 'elasticsuite',
+                    'engine' => 'elasticsearch7',
                     'elasticsearch7_server_hostname' => 'opensearch',
                     'elasticsearch7_server_port' => 9200,
                 ]

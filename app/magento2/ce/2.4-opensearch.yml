@@ -1,5 +1,5 @@
 app:
-  name: magento2-ee-2.4
+  name: magento2-ce-2.4
   $ref: ../with-opensearch
   services:
     php:
