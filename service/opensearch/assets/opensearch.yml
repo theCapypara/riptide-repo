@@ -1,0 +1,11 @@
+cluster.name: riptide-cluster
+
+# Bind to all interfaces because we don't know what IP address Docker will assign to us.
+network.host: 0.0.0.0
+
+plugins.security.disabled: true
+discovery.type: single-node
+node.name: riptide
+
+action.auto_create_index: true
+compatibility.override_main_response_version: true

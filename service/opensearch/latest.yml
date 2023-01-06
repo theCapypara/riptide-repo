@@ -1,0 +1,24 @@
+service:
+  # WARNING: Under Linux make sure to run "sudo sysctl -w vm.max_map_count=262144" before or ES will crash.
+  image: opensearch:latest
+  environment:
+    node.name: riptide
+    cluster.name: riptide-cluster
+    bootstrap: memory_lock=true
+    discovery.type: "single-node"
+    ES_JAVA_OPTS: "-Xms512m -Xmx512m -Dlog4j2.formatMsgNoLookups=true"
+  port: 9200
+  additional_volumes:
+    data:
+      host: "{{ volume_path() }}/data"
+      container: "/usr/share/opensearch/data"
+  logging:
+    stdout: true
+    stderr: true
+  run_as_current_user: false
+  pre_start:
+    - chown -R 1000:1000 /usr/share/opensearch/data
+  config:
+    opensearchyaml:
+      from: assets/opensearch.yml
+      to: /usr/share/opensearch/config/opensearch.yml

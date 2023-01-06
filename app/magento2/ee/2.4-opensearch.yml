@@ -1,0 +1,8 @@
+app:
+  name: magento2-ee-2.4
+  $ref: ../with-opensearch
+  services:
+    php:
+      config:
+        env_php:
+          from: assets/2.4-with-opensearch/env.php
