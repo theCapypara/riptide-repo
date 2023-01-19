@@ -8,6 +8,12 @@ service:
     - shopify
     - src
   additional_volumes:
+    composer_config:
+      container: /home/riptide/.config/composer
+      host: ~/.config/composer
+    composer_cache:
+      container: /home/riptide/.cache/composer
+      host: ~/.cache/composer
     shopify_config:
       container: /home/riptide/.config/shopify-cli-kit-nodejs
       host: ~/.config/shopify-cli-kit-nodejs
