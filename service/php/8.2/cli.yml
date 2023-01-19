@@ -1,0 +1,3 @@
+service:
+  $ref: ../base
+  image: riptidepy/php:8.2-cli
