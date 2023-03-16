@@ -57,6 +57,7 @@ app:
 
   services:
     php:
+      image: riptidepy/php:8.1-fpm
       config:
         env_php:
           from: assets/2.4/env.php
