@@ -132,6 +132,7 @@ app:
 
     db:
       $ref: /service/mysql/5.7
+      image: mariadb:10.6
       driver:
         config:
           database: magento2

@@ -61,5 +61,3 @@ app:
       config:
         env_php:
           from: assets/2.4/env.php
-    db:
-      image: mariadb:10.6
