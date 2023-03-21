@@ -51,6 +51,14 @@ app:
         # 5. Run setup:upgrade
         riptide restart -s redis
         riptide cmd magento setup:upgrade
+      
+      Optional:
+        If you want to configure multiple websites you need to specify additional_subdomains for the service '{{ get_service_by_role("src")["$name"] }}'
+        and add the subdomain of every website (except the default one) to the list.
+        Additionally you'll need to set the MAGE_RUN_CODE for every website,
+        which is done by setting an environment variable for each subdomain you added using the following key: SUBDOMAIN_<uppercase subdomain name>_CODE
+  
+        You can find an example configuration here: 
 
       You can change the settings in step 3 to your likings, see the installation guide at
         https://devdocs.magento.com/guides/v2.4/install-gde/install/cli/install-cli.html
