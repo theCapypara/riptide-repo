@@ -26,7 +26,7 @@ app:
         Additionally you'll need to set the MAGE_RUN_CODE for every website,
         which is done by setting an environment variable for each subdomain you added using the following key: SUBDOMAIN_<uppercase subdomain name>_CODE
       
-        You can find an example configuration here: 
+        You can find an example configuration here: https://github.com/theCapypara/riptide-repo/pull/28#Example
 
       After that your Magento shop will be ready! Enjoy!
 
