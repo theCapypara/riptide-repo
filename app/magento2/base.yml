@@ -88,13 +88,11 @@ app:
       config:
         nginx_conf_main_entry:
           from: assets/magento-nginx-entrypoint.conf
-          to: '{{ get_working_directory() }}/nginx.conf.main_entry'
+          to: '{{ get_working_directory() }}/nginx.conf.riptide'
         env_php:
           from: assets/env.php
           to: '{{ get_working_directory() }}/app/etc/env.php'
       pre_start:
-        # Remove main entrypoint from nginx.conf.sample
-        - "sed -i'' -z -E 's/# PHP entry point for main application(\n|.)*}\n\n//' '{{ get_working_directory() }}/nginx.conf.sample'"
         # Wait for db
         - 'until bin/magento; do :; done'
         # Set basic database settings
