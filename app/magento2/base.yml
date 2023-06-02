@@ -99,6 +99,9 @@ app:
         - "bin/magento config:set --scope=default web/unsecure/base_url 'https://{{ parent().get_service_by_role(\"magento_front\").domain() }}/'"
         - "bin/magento config:set --scope=default web/secure/base_url 'https://{{ parent().get_service_by_role(\"magento_front\").domain() }}/'"
         - "bin/magento config:set --scope=default web/secure/offloader_header X-Forwarded-Proto"
+        # Set base URLs for additional subdomains
+        - "{% for subdomain, additional_domain in parent().get_service_by_role('magento_front').additional_domains().items() %} bin/magento config:set --scope website --scope-code '{{ subdomain }}' web/unsecure/base_url 'http://{{ additional_domain }}/'; {% endfor %}"
+        - "{% for subdomain, additional_domain in parent().get_service_by_role('magento_front').additional_domains().items() %} bin/magento config:set --scope website --scope-code '{{ subdomain }}' web/secure/base_url 'https://{{ additional_domain }}/'; {% endfor %}"
         # Load the database config via mageconfigsync if installed
         - "php vendor/bin/mageconfigsync load --env dev app/etc/config.yml || true"
         # Flush cache
