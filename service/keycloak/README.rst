@@ -22,7 +22,7 @@ Configuration:
 
 **Password**: admin
 
-**Features**: account-api,account2,account3,admin-api,admin-fine-grained-authz,admin2,authorization,ciba,client-policies,client-secret-rotation,declarative-user-profile,docker,dynamic-scopes,fips,impersonation,map-storage,par,preview,recovery-codes,scripts,step-up-authentication,token-exchange,update-email
+**Features**: account-api,account2,account3,admin-api,admin-fine-grained-authz,admin2,authorization,ciba,client-policies,client-secret-rotation,declarative-user-profile,docker,impersonation,par,preview,recovery-codes,scripts,step-up-authentication,token-exchange,update-email
 
 ``/service/keycloak/21.0.1``
 ----------------------------
