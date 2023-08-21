@@ -15,14 +15,24 @@ Open Source Identity and Access Management
 
 Latest version of the Keycloak Container image.
 
+Additional volumes
+~~~~~~~~~~~~~~~~~~
+
++-----------+------------------+-----------------------------+-------------------------+---------------------------------------+
+|   Name    |      Source      |         Source path         |       Target path       |              Description              |
++===========+==================+=============================+=========================+=======================================+
+| conf      | Config folder    | _riptide/data/___/conf      | /opt/keycloak/conf      | Keycloak configuration files          |
+| data      | Data folder      | _riptide/data/___/data      | /opt/keycloak/data      | Database and cache related files      |
+| providers | Providers folder | _riptide/data/___/providers | /opt/keycloak/providers | Additional dependencies for providers |
+| themes    | Themes folder    | _riptide/data/___/themes    | /opt/keycloak/themes    | Directory for custom themes           |
++-----------+------------------+-----------------------------+-------------------------+---------------------------------------+
+
 Configuration:
 ++++++++++++++
 
 **User**: admin
 
 **Password**: admin
-
-**Features**: account-api,account2,account3,admin-api,admin-fine-grained-authz,admin2,authorization,ciba,client-policies,client-secret-rotation,declarative-user-profile,docker,impersonation,par,preview,recovery-codes,scripts,step-up-authentication,token-exchange,update-email
 
 ``/service/keycloak/21.0.1``
 ----------------------------

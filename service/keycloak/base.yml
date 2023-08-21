@@ -2,9 +2,21 @@ service:
   image: riptidepy/keycloak:latest
   port: 8080
   command: "start-dev"
+  additional_volumes:
+    conf:
+      host: '{{ volume_path() }}/conf'
+      container: '/opt/keycloak/conf'
+    data:
+      host: '{{ volume_path() }}/data'
+      container: '/opt/keycloak/data'
+    providers:
+      host: '{{ volume_path() }}/providers'
+      container: '/opt/keycloak/providers'
+    themes:
+      host: '{{ volume_path() }}/themes'
+      container: '/opt/keycloak/themes'
   environment:
     KC_HOSTNAME_URL: "https://{{ domain() }}"
-    KC_FEATURES: "account-api,account2,account3,admin-api,admin-fine-grained-authz,admin2,authorization,ciba,client-policies,client-secret-rotation,declarative-user-profile,docker,impersonation,par,preview,recovery-codes,scripts,step-up-authentication,token-exchange,update-email"
     KEYCLOAK_ADMIN: "admin"
     KEYCLOAK_ADMIN_PASSWORD: "admin"
   logging:
