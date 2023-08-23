@@ -17,6 +17,7 @@ service:
       container: '/opt/keycloak/themes'
   environment:
     KC_HOSTNAME_URL: "https://{{ domain() }}"
+    KC_HOSTNAME_ADMIN_URL: "https://{{ domain() }}"
     KEYCLOAK_ADMIN: "admin"
     KEYCLOAK_ADMIN_PASSWORD: "admin"
   logging:
