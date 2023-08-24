@@ -1,0 +1,25 @@
+service:
+  image: riptidepy/keycloak:latest
+  port: 8080
+  command: "start-dev"
+  additional_volumes:
+    conf:
+      host: '{{ volume_path() }}/conf'
+      container: '/opt/keycloak/conf'
+    data:
+      host: '{{ volume_path() }}/data'
+      container: '/opt/keycloak/data'
+    providers:
+      host: '{{ volume_path() }}/providers'
+      container: '/opt/keycloak/providers'
+    themes:
+      host: '{{ volume_path() }}/themes'
+      container: '/opt/keycloak/themes'
+  environment:
+    KC_HOSTNAME_URL: "https://{{ domain() }}"
+    KC_HOSTNAME_ADMIN_URL: "https://{{ domain() }}"
+    KEYCLOAK_ADMIN: "admin"
+    KEYCLOAK_ADMIN_PASSWORD: "admin"
+  logging:
+    stdout: true
+    stderr: true
