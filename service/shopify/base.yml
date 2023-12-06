@@ -15,11 +15,26 @@ service:
       container: /home/riptide/.cache/composer
       host: ~/.cache/composer
     shopify_config:
+      container: /home/riptide/.config/shopify
+      host: ~/.config/shopify
+    shopify_config_cli_kit_nodejs:
       container: /home/riptide/.config/shopify-cli-kit-nodejs
       host: ~/.config/shopify-cli-kit-nodejs
-    shopify_cache:
+    shopify_config_cli_app_nodejs:
+      container: /home/riptide/.config/shopify-cli-app-nodejs
+      host: ~/.config/shopify-cli-app-nodejs
+    shopify_cache_cli_nodejs:
       container: /home/riptide/.cache/shopify-cli-nodejs
       host: ~/.cache/shopify-cli-nodejs
+    shopify_cache:
+      container: /home/riptide/.cache/shopify
+      host: ~/.cache/shopify
+    shopify_cache_at:
+      container: /home/riptide/.cache/@shopify
+      host: ~/.cache/@shopify
+    shopify_cache_gems_nodejs:
+      container: /home/riptide/.cache/shopify-gems-nodejs
+      host: ~/.cache/shopify-gems-nodejs
     ngrok_config:
       container: /home/riptide/.config/ngrok
       host: ~/.config/ngrok
