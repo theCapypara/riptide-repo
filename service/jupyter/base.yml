@@ -1,0 +1,21 @@
+service:
+  image: riptidepy/jupyter:latest
+  roles:
+    - main
+    - src
+    - jupyter
+  working_directory: .
+  port: 8888
+  additional_volumes:
+    notebooks:
+      container: /notebooks
+      host: ./notebooks
+    jupyter:
+      container: /home/docker/.jupyter
+      host: ./.jupyter
+  post_start:
+    # wait until server is up
+    - 'until curl localhost:8888; do sleep 1; done'
+  logging:
+    stdout: true
+    stderr: true
