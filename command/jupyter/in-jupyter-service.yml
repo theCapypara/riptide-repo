@@ -1,0 +1,4 @@
+command:
+  # -i for interactive shell, so .bashrc is read
+  command: bash -i -c "jupyter \"\$@\"" --
+  in_service_with_role: jupyter

@@ -1,0 +1,22 @@
+app:
+  name: jupyter
+
+  notices:
+    usage: >-
+      After starting the service, you can open Jupyter in the browser.
+    installation: >-
+      Run riptide start, then check JUPYTER.md.
+
+  services:
+    jupyter:
+      $ref: /service/jupyter/base
+
+  commands:
+    python:
+      $ref: /command/python/in-jupyter-service
+    pip:
+      $ref: /command/pip/in-jupyter-service
+    jupyter:
+      $ref: /command/jupyter/in-jupyter-service
+    poetry:
+      $ref: /command/poetry/in-jupyter-service

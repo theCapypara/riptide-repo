@@ -1,0 +1,4 @@
+command:
+  # -i for interactive shell, so .bashrc is read
+  command: bash -i -c "if [ \"\$1\" = "install" ]; then poetry \"\$@\" --no-root; else poetry \"\$@\"; fi" --
+  in_service_with_role: jupyter
