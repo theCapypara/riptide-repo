@@ -16,6 +16,10 @@ service:
         from: assets/php.ini
         # w to load before xdebug.ini
         to: '/usr/local/etc/php/conf.d/w_riptide.ini'
+      php_ini_late:
+        from: assets/php-late.ini
+        # w to load before xdebug.ini
+        to: '/usr/local/etc/php/conf.d/zzz_riptide.ini'
       xdebug_ini:
         from: assets/xdebug.ini
         to: '/usr/local/etc/php/conf.d/xdebug.ini'
