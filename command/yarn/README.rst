@@ -40,6 +40,15 @@ Latest Yarn with different Node.js versions. Avaiable Node.js versions:
 - 10
 - 11
 - 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
 
 ``/command/yarn/in-shopify-service``
 ------------------------------------
