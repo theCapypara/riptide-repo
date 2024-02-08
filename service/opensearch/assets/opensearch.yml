@@ -1,4 +1,5 @@
 cluster.name: riptide-cluster
+bootstrap.memory_lock: true
 
 # Bind to all interfaces because we don't know what IP address Docker will assign to us.
 network.host: 0.0.0.0
@@ -9,3 +10,6 @@ node.name: riptide
 
 action.auto_create_index: true
 compatibility.override_main_response_version: true
+
+# Prevent OpenSearch from setting read-only mode on "low" storage space
+cluster.routing.allocation.disk.threshold_enabled: false
