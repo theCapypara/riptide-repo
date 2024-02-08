@@ -3,7 +3,7 @@ php
 
 PHP_ scripting language. Uses the `riptidepy/php <https://hub.docker.com/r/riptidepy/php>`_ images.
 
-There are variants for PHP 7.1 - 8.2.
+There are variants for PHP 7.1 - 8.3.
 Some include the Apache web server (``apache`` variants), others include php-fpm (``php-fpm`` variants) and some only the interpreter (``cli`` variants).
 
 .. _PHP: https://php.net/
