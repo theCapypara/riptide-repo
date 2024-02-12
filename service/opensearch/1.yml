@@ -1,0 +1,3 @@
+service:
+  $ref: ./latest
+  image: riptidepy/opensearch:1

@@ -20,6 +20,24 @@ The template provided is tested for OpenSearch 1.2.0.
 
 **Runs as the user using Riptide?**: yes
 
-**Accessible via Proxy?**: no
+**Accessible via Proxy?**: yes
 
 Latest version of OpenSearch.
+
+``/service/opensearch/1``
+---------------------------------
+
+**Runs as the user using Riptide?**: yes
+
+**Accessible via Proxy?**: yes
+
+Version 1 of OpenSearch.
+
+``/service/opensearch/2``
+---------------------------------
+
+**Runs as the user using Riptide?**: yes
+
+**Accessible via Proxy?**: yes
+
+Version 2 of OpenSearch.
