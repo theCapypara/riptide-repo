@@ -79,7 +79,7 @@ app:
         RIPTIDE_XDEBUG_VERSION: "3"
       run_as_current_user: true
     cdb:
-      $ref: /service/mysql/8.0-debian
+      $ref: /service/mysql/8.0
       driver:
         config:
           database: craft
