@@ -7,12 +7,12 @@ app:
   notices:
     usage: >-
       After setup, run "composer install" and you are pretty much good to go.
-      
+
       No ".env" file is needed, Riptide will generate one on first start of the www service.
 
       To use Redis for cache, follow the official guide on how to configure Redis for Craft and
       make sure the redis hostname is read from the environment variable REDIS_HOST.
-    
+
       In order to use Varnish, install the plugin Upper with default configuration.
 
     installation: >-
@@ -79,7 +79,7 @@ app:
         RIPTIDE_XDEBUG_VERSION: "3"
       run_as_current_user: true
     cdb:
-      $ref: /service/mysql/5.7
+      $ref: /service/mysql/8.0-debian
       driver:
         config:
           database: craft
