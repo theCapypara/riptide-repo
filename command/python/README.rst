@@ -19,3 +19,15 @@ Role Requirements
 **Role**: ``jupyter``
 
 This command requires another service that has the role ``jupyter`` set.
+
+``/command/python/in-streamlit-service``
+---------------------------------------
+
+Running ``python`` command in the service with role ``streamlit``.
+
+Role Requirements
+~~~~~~~~~~~~~~~~~
+
+**Role**: ``streamlit``
+
+This command requires another service that has the role ``streamlit`` set.

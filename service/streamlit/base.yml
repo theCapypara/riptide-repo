@@ -1,0 +1,14 @@
+service:
+  image: riptidepy/streamlit:latest
+  roles:
+    - main
+    - src
+    - streamlit
+  working_directory: .
+  port: 8501
+  post_start:
+    # wait until server is up
+    - 'until curl localhost:8501; do sleep 1; done'
+  logging:
+    stdout: true
+    stderr: true

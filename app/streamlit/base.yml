@@ -1,0 +1,22 @@
+app:
+  name: streamlit
+
+  notices:
+    usage: >-
+      After starting the service, you can open Streamlit in the browser.
+    installation: >-
+      Run riptide start, then check STREAMLIT.md.
+
+  services:
+    streamlit:
+      $ref: /service/streamlit/base
+
+  commands:
+    python:
+      $ref: /command/python/in-streamlit-service
+    pip:
+      $ref: /command/pip/in-streamlit-service
+    streamlit:
+      $ref: /command/streamlit/in-streamlit-service
+    poetry:
+      $ref: /command/poetry/in-streamlit-service
