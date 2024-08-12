@@ -3,7 +3,7 @@ service:
   roles:
     - main
     - src
-    - streamlit
+    - python
   working_directory: .
   port: 8501
   post_start:

@@ -1,5 +1,5 @@
 Streamlit
-=======
+=========
 
 `Streamlit App`_ Python framework for data scientists and AI/ML engineers to deliver interactive data apps.
 
@@ -20,7 +20,7 @@ Services
 ~~~~~~~~
 
 Streamlit
-+++++++
++++++++++
 
 `Streamlit Service`_ Service for Streamlit server.
 
@@ -30,7 +30,7 @@ Commands
 ~~~~~~~~
 
 python
-+++++++
+++++++
 
 `python`_ Python CLI.
 
@@ -45,15 +45,15 @@ pip
 
 
 streamlit
-++++
++++++++++
 
-`Streamlit`_ Streamlit CLI.
+`Streamlit CLI`_ Command line interface for Streamlit.
 
-.. _`Streamlit`: /command/streamlit
+.. _`Streamlit CLI`: https://docs.streamlit.io/develop/api-reference/cli
 
 
 poetry
-++++
+++++++
 
 `poetry`_ Advanced python package manager.
 

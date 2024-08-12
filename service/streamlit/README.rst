@@ -18,9 +18,9 @@ Python Streamlit server.
 Suggested Roles
 ~~~~~~~~~~~~~~~
 
-**Has roles**: ``streamlit``
+**Has roles**: ``python``
 
-This service has the role ``streamlit`` set and is a base for Streamlit related commands.
+This service has the role ``python`` set and is a base for commands that require Python.
 
 **Suggested roles**: ``src``, ``main``
 

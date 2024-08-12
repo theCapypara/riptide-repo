@@ -8,26 +8,14 @@ Python
 ..  contents:: Index
     :depth: 2
 
-``/command/python/in-jupyter-service``
+``/command/python/in-python-service``
 ---------------------------------------
 
-Running ``python`` command in the service with role ``jupyter``.
+Running ``python`` command in the service with role ``python``.
 
 Role Requirements
 ~~~~~~~~~~~~~~~~~
 
-**Role**: ``jupyter``
+**Role**: ``python``
 
-This command requires another service that has the role ``jupyter`` set.
-
-``/command/python/in-streamlit-service``
----------------------------------------
-
-Running ``python`` command in the service with role ``streamlit``.
-
-Role Requirements
-~~~~~~~~~~~~~~~~~
-
-**Role**: ``streamlit``
-
-This command requires another service that has the role ``streamlit`` set.
+This command requires another service that has the role ``python`` set.

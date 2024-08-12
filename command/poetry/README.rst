@@ -8,26 +8,14 @@ Poetry
 ..  contents:: Index
     :depth: 2
 
-``/command/poetry/in-jupyter-service``
+``/command/poetry/in-python-service``
 ---------------------------------------
 
-Running ``poetry`` command in the service with role ``jupyter``.
+Running ``poetry`` command in the service with role ``python``.
 
 Role Requirements
 ~~~~~~~~~~~~~~~~~
 
-**Role**: ``jupyter``
+**Role**: ``python``
 
-This command requires another service that has the role ``jupyter`` set.
-
-``/command/poetry/in-streamlit-service``
----------------------------------------
-
-Running ``poetry`` command in the service with role ``streamlit``.
-
-Role Requirements
-~~~~~~~~~~~~~~~~~
-
-**Role**: ``streamlit``
-
-This command requires another service that has the role ``streamlit`` set.
+This command requires another service that has the role ``python`` set.

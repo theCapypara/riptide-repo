@@ -5,8 +5,8 @@ service:
     keep_running: '$(while true; do sleep 1; done)'
   roles:
     - main
-    - shopify
     - src
+    - node
   additional_volumes:
     composer_config:
       container: /home/riptide/.config/composer

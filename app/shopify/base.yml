@@ -15,13 +15,15 @@ app:
 
   commands:
     shopify:
-      $ref: /command/shopify/in-shopify-service
+      command: bash -c "cd /src && ./node_modules/.bin/shopify \"\$@\"" --
+      use_host_network: true
+      in_service_with_role: shopify
     npm:
-      $ref: /command/npm/in-shopify-service
+      $ref: /command/npm/in-node-service
     yarn:
-      $ref: /command/yarn/in-shopify-service
+      $ref: /command/yarn/in-node-service
     node:
-      $ref: /command/node/in-shopify-service
+      $ref: /command/node/in-node-service
     composer:
       command: bash -c "cd /src/web && composer \"\$@\"" --
       use_host_network: true

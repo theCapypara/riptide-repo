@@ -13,10 +13,12 @@ app:
 
   commands:
     python:
-      $ref: /command/python/in-streamlit-service
+      $ref: /command/python/in-python-service
     pip:
-      $ref: /command/pip/in-streamlit-service
+      $ref: /command/pip/in-python-service
     streamlit:
-      $ref: /command/streamlit/in-streamlit-service
+      # -i for interactive shell, so .bashrc is read
+      command: bash -i -c "streamlit \"\$@\"" --
+      in_service_with_role: python
     poetry:
-      $ref: /command/poetry/in-streamlit-service
+      $ref: /command/poetry/in-python-service

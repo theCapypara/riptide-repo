@@ -34,14 +34,14 @@ Different Node.jS versions. Available versions:
 
 Other versions can be used by changing the version of the image.
 
-``/command/node/in-shopify-service``
+``/command/node/in-node-service``
 ------------------------------------
 
-Running ``node`` command in the service with role ``shopify``.
+Running ``node`` command in the service with role ``node``.
 
 Role Requirements
 ~~~~~~~~~~~~~~~~~
 
-**Role**: ``shopify``
+**Role**: ``node``
 
-This command requires another service that has the role ``shopify`` set.
+This command requires another service that has the role ``node`` set.

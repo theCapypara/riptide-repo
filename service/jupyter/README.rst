@@ -18,9 +18,9 @@ Python Jupyter Notebooks server.
 Suggested Roles
 ~~~~~~~~~~~~~~~
 
-**Has roles**: ``jupyter``
+**Has roles**: ``python``
 
-This service has the role ``jupyter`` set and is a base for Jupyter related commands.
+This service has the role ``python`` set and is a base for commands that require Python.
 
 **Suggested roles**: ``src``, ``main``
 

@@ -3,7 +3,7 @@ service:
   roles:
     - main
     - src
-    - jupyter
+    - python
   working_directory: .
   port: 8888
   additional_volumes:

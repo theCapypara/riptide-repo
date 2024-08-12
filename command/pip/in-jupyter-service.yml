@@ -1,4 +1,0 @@
-command:
-  # -i for interactive shell, so .bashrc is read
-  command: bash -i -c "pip \"\$@\"" --
-  in_service_with_role: jupyter

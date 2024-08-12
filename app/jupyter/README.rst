@@ -30,7 +30,7 @@ Commands
 ~~~~~~~~
 
 python
-+++++++
+++++++
 
 `python`_ Python CLI.
 
@@ -45,15 +45,15 @@ pip
 
 
 jupyter
-++++
++++++++
 
-`jupyter`_ Jupyter CLI.
+`Jupyter CLI`_ Command line interface for Jupyter.
 
-.. _`jupyter`: /command/jupyter
+.. _`Jupyter CLI`: https://docs.jupyter.org/en/latest/index.html
 
 
 poetry
-++++
+++++++
 
 `poetry`_ Advanced python package manager.
 

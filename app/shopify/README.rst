@@ -32,9 +32,9 @@ Commands
 shopify
 +++++++
 
-`Shopify Command`_ Shopify CLI command.
+`Shopify CLI`_ Command line interface for Shopify E-commerce software.
 
-.. _`Shopify Command`: /command/shopify
+.. _`Shopify CLI`: https://shopify.dev/apps/tools/cli
 
 npm
 +++

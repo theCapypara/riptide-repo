@@ -13,10 +13,12 @@ app:
 
   commands:
     python:
-      $ref: /command/python/in-jupyter-service
+      $ref: /command/python/in-python-service
     pip:
-      $ref: /command/pip/in-jupyter-service
+      $ref: /command/pip/in-python-service
     jupyter:
-      $ref: /command/jupyter/in-jupyter-service
+      # -i for interactive shell, so .bashrc is read
+      command: bash -i -c "jupyter \"\$@\"" --
+      in_service_with_role: python
     poetry:
-      $ref: /command/poetry/in-jupyter-service
+      $ref: /command/poetry/in-python-service
