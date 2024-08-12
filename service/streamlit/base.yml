@@ -1,9 +1,7 @@
 service:
   image: riptidepy/streamlit:latest
   roles:
-    - main
     - src
-    - python
   working_directory: .
   port: 8501
   post_start:

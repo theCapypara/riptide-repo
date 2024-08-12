@@ -12,6 +12,9 @@ app:
   services:
     shopify:
       $ref: /service/shopify/base
+      roles:
+        - main
+        - node
 
   commands:
     shopify:

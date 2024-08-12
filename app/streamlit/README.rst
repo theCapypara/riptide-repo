@@ -26,6 +26,15 @@ Streamlit
 
 .. _`Streamlit Service`: /service/streamlit
 
+Suggested Roles
+
+**Has roles**: ``python``
+
+This service has the role ``python`` set and is a base for commands that require Python.
+
+**Suggested roles**: ``main``
+
+
 Commands
 ~~~~~~~~
 
@@ -35,6 +44,7 @@ python
 `python`_ Python CLI.
 
 .. _`python`: /command/python
+
 
 pip
 +++

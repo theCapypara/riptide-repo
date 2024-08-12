@@ -10,6 +10,9 @@ app:
   services:
     jupyter:
       $ref: /service/jupyter/base
+      roles:
+        - main
+        - python
 
   commands:
     python:

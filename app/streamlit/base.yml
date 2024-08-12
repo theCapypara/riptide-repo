@@ -10,6 +10,9 @@ app:
   services:
     streamlit:
       $ref: /service/streamlit/base
+      roles:
+        - main
+        - python
 
   commands:
     python:

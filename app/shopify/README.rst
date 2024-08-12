@@ -26,6 +26,15 @@ Shopify
 
 .. _`Shopify Service`: /service/shopify
 
+Suggested Roles
+
+**Has roles**: ``node``
+
+This service has the role ``node`` set and is a base for commands that require Node.js.
+
+**Suggested roles**: ``main``
+
+
 Commands
 ~~~~~~~~
 

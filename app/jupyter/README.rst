@@ -26,6 +26,15 @@ Jupyter
 
 .. _`Jupyter Service`: /service/jupyter
 
+Suggested Roles
+
+**Has roles**: ``python``
+
+This service has the role ``python`` set and is a base for commands that require Python.
+
+**Suggested roles**: ``main``
+
+
 Commands
 ~~~~~~~~
 
