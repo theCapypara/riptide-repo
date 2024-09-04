@@ -42,8 +42,21 @@ def copy_files(type):
         lines.insert(index, "**Link to entity in repository:** "
                             "`<https://github.com/theCapypara/riptide-repo/tree/master/%s/%s>`_\n\n" % (type, name))
 
+        new_lines = []
+        line_i = 0
+        while line_i < len(lines):
+            line = lines[line_i]
+            if line.startswith("..  contents::"):
+                # Skip this line and next one if contants :depth:
+                line_i += 1
+                if ":depth:" in lines[line_i]:
+                    line_i += 1
+                continue
+            new_lines.append(line)
+            line_i += 1
+
         with open(target_name, "w") as f:
-            f.writelines(lines)
+            f.writelines(new_lines)
 
 
 copy_files('app')
