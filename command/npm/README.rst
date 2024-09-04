@@ -50,14 +50,14 @@ Latest NPM with different Node.js versions. Avaiable Node.js versions:
 - 20
 - 21
 
-``/command/npm/in-shopify-service``
+``/command/npm/in-node-service``
 -----------------------------------
 
-Running ``npm`` command in the service with role ``shopify``.
+Running ``npm`` command in the service with role ``node``.
 
 Role Requirements
 ~~~~~~~~~~~~~~~~~
 
-**Role**: ``shopify``
+**Role**: ``node``
 
-This command requires another service that has the role ``shopify`` set.
+This command requires another service that has the role ``node`` set.

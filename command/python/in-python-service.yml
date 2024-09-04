@@ -1,4 +1,4 @@
 command:
   # -i for interactive shell, so .bashrc is read
   command: bash -i -c "python \"\$@\"" --
-  in_service_with_role: jupyter
+  in_service_with_role: python

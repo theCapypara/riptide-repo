@@ -1,15 +1,15 @@
 app:
-  name: jupyter
+  name: streamlit
 
   notices:
     usage: >-
-      After starting the service, you can open Jupyter in the browser.
+      After starting the service, you can open Streamlit in the browser.
     installation: >-
-      Run riptide start, then check JUPYTER.md.
+      Run riptide start, then check STREAMLIT.md.
 
   services:
-    jupyter:
-      $ref: /service/jupyter/base
+    streamlit:
+      $ref: /service/streamlit/base
       roles:
         - main
         - python
@@ -19,9 +19,9 @@ app:
       $ref: /command/python/in-python-service
     pip:
       $ref: /command/pip/in-python-service
-    jupyter:
+    streamlit:
       # -i for interactive shell, so .bashrc is read
-      command: bash -i -c "jupyter \"\$@\"" --
+      command: bash -i -c "streamlit \"\$@\"" --
       in_service_with_role: python
     poetry:
       $ref: /command/poetry/in-python-service

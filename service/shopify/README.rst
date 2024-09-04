@@ -18,11 +18,7 @@ Base to run all Shopify related commands.
 Suggested Roles
 ~~~~~~~~~~~~~~~
 
-**Has roles**: ``shopify``
-
-This service has the role ``shopify`` set and is a base for Shopify related commands.
-
-**Suggested roles**: ``src``, ``main``
+**Suggested roles**: ``src``
 
 This service should have access to the source code of the application via the role ``src``.
 

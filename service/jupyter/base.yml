@@ -1,9 +1,7 @@
 service:
   image: riptidepy/jupyter:latest
   roles:
-    - main
     - src
-    - jupyter
   working_directory: .
   port: 8888
   additional_volumes:

@@ -8,14 +8,14 @@ PIP
 ..  contents:: Index
     :depth: 2
 
-``/command/pip/in-jupyter-service``
+``/command/pip/in-python-service``
 ---------------------------------------
 
-Running ``pip`` command in the service with role ``jupyter``.
+Running ``pip`` command in the service with role ``python``.
 
 Role Requirements
 ~~~~~~~~~~~~~~~~~
 
-**Role**: ``jupyter``
+**Role**: ``python``
 
-This command requires another service that has the role ``jupyter`` set.
+This command requires another service that has the role ``python`` set.

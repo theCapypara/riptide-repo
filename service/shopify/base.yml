@@ -1,12 +1,13 @@
 service:
   image: riptidepy/shopify:latest
+
   command:
     default: 'sleep 3'
     keep_running: '$(while true; do sleep 1; done)'
+
   roles:
-    - main
-    - shopify
     - src
+
   additional_volumes:
     composer_config:
       container: /home/riptide/.config/composer
@@ -54,7 +55,9 @@ service:
     tmp:
       container: /tmp/
       host: '{{ get_tempdir() }}'
+
   working_directory: .
+
   logging:
     stdout: true
     stderr: true

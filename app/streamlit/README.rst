@@ -1,12 +1,12 @@
-Jupyter
-=======
+Streamlit
+=========
 
-`Jupyter App`_ Web-based interactive computing platform.
+`Streamlit App`_ Python framework for data scientists and AI/ML engineers to deliver interactive data apps.
 
 Get started quickly (after ``riptide setup``):
-Run ``riptide start``, then check ``JUPYTER.md``.
+Run ``riptide start``, then check ``STREAMLIT.md``.
 
-.. _`Jupyter App`: https://jupyter.org
+.. _`Streamlit App`: https://streamlit.io
 
 ..  contents:: Index
     :depth: 3
@@ -14,17 +14,17 @@ Run ``riptide start``, then check ``JUPYTER.md``.
 ``/app/base``
 -------------
 
-Base for Jupyter projects.
+Base for Streamlit projects.
 
 Services
 ~~~~~~~~
 
-Jupyter
-+++++++
+Streamlit
++++++++++
 
-`Jupyter Service`_ Service for Jupyter Notebook server.
+`Streamlit Service`_ Service for Streamlit server.
 
-.. _`Jupyter Service`: /service/jupyter
+.. _`Streamlit Service`: /service/streamlit
 
 Suggested Roles
 
@@ -45,6 +45,7 @@ python
 
 .. _`python`: /command/python
 
+
 pip
 +++
 
@@ -53,12 +54,12 @@ pip
 .. _`pip`: /command/pip
 
 
-jupyter
-+++++++
+streamlit
++++++++++
 
-`Jupyter CLI`_ Command line interface for Jupyter.
+`Streamlit CLI`_ Command line interface for Streamlit.
 
-.. _`Jupyter CLI`: https://docs.jupyter.org/en/latest/index.html
+.. _`Streamlit CLI`: https://docs.streamlit.io/develop/api-reference/cli
 
 
 poetry

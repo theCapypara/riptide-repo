@@ -26,15 +26,24 @@ Shopify
 
 .. _`Shopify Service`: /service/shopify
 
+Suggested Roles
+
+**Has roles**: ``node``
+
+This service has the role ``node`` set and is a base for commands that require Node.js.
+
+**Suggested roles**: ``main``
+
+
 Commands
 ~~~~~~~~
 
 shopify
 +++++++
 
-`Shopify Command`_ Shopify CLI command.
+`Shopify CLI`_ Command line interface for Shopify E-commerce software.
 
-.. _`Shopify Command`: /command/shopify
+.. _`Shopify CLI`: https://shopify.dev/apps/tools/cli
 
 npm
 +++

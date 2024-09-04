@@ -1,4 +1,4 @@
 command:
   command: bash -c "node \"\$@\"" --
   use_host_network: true
-  in_service_with_role: shopify
+  in_service_with_role: node
