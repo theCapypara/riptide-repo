@@ -5,3 +5,7 @@ command:
     # Load config files from php service
     config_from_roles:
       - php
+    additional_volumes:
+      opcache:
+        # TODO: This is a bug, we need to set this value again, otherwise during merging it will try to replace inside of the template string for image above BEFORE processing it.
+        volume_name: "php_opcache__{{ parent().parent().name }}__{{ parent().get_service_by_role('php').image | replace(':', '_') | replace('/', '_') }}__xdebug_{% if system_config().get_plugin_flag('php-xdebug.enabled') %}enabled{% else %}disabled{% endif %}"
