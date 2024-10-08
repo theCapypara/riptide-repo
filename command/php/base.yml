@@ -7,4 +7,4 @@ command:
       opcache:
         host: "~/.cache/riptide/{{ parent().parent().name }}/{{ image }}/opcache/xdebug_{% if system_config().get_plugin_flag('php-xdebug.enabled') %}en{% else %}dis{% endif %}abled"
         container: "/opcache"
-        volume_name: "php_opcache__xdebug_{% if system_config().get_plugin_flag('php-xdebug.enabled') %}enabled{% else %}disabled{% endif %}"
+        volume_name: "php_opcache__{{ parent().parent().name }}__{{ image | replace(':', '_') | replace('/', '_') }}__xdebug_{% if system_config().get_plugin_flag('php-xdebug.enabled') %}enabled{% else %}disabled{% endif %}"
