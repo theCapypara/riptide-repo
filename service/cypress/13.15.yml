@@ -1,0 +1,3 @@
+service:
+  $ref: ./base
+  image: cypress/included:13.15.0

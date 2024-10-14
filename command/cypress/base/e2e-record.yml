@@ -1,0 +1,5 @@
+command:
+  command: cypress run --record --project ${PROJECT_PATH} --tag "dev--{{ parent().services.node.domain() }}"
+  in_service_with_role: cypress
+  environment:
+    DISPLAY: '{{ parent().services.cypress.environment.DISPLAY }}'
