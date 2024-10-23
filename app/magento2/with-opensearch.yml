@@ -56,4 +56,3 @@ app:
   services:
     opensearch:
       $ref: /service/opensearch/latest
-      image: opensearchproject/opensearch:1.2.0
