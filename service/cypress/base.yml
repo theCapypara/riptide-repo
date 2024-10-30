@@ -1,0 +1,14 @@
+service:
+  image: cypress/included:latest
+  roles:
+    - src
+    - cypress
+  pre_start:
+    - until ping -c5 novnc &> /dev/null; do :; done
+  ignore_original_entrypoint: true
+  command: cypress open --project ${PROJECT_PATH}
+  environment:
+    PROJECT_PATH: "{{ get_working_directory() }}"
+  logging:
+    stdout: true
+    stderr: true

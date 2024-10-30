@@ -1,0 +1,4 @@
+service:
+  $ref: ./base
+  environment:
+    DISPLAY: novnc:0.0
