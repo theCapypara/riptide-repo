@@ -1,5 +1,5 @@
-Redis
-========
+Cypress
+=======
 
 Cypress_ is an e2e testing suite
 

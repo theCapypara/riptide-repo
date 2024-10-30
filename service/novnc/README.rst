@@ -1,5 +1,5 @@
-Redis
-========
+NoVNC
+=====
 
 Novnc_ is a vnc service accessible via browser.
 
