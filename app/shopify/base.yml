@@ -15,6 +15,7 @@ app:
       roles:
         - main
         - node
+        - shopify
 
   commands:
     shopify:
