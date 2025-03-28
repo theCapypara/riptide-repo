@@ -33,6 +33,30 @@ service:
     shopify_cache:
       container: /home/riptide/.cache/shopify
       host: ~/.cache/shopify
+    shopify_theme_config:
+      container: /home/riptide/.config/shopify-cli-theme-conf-nodejs
+      host: ~/.config/shopify-cli-theme-conf-nodejs
+    shopify_theme_dev_config:
+      container: /home/riptide/.config/shopify-cli-development-theme-conf-nodejs
+      host: ~/.config/shopify-cli-development-theme-conf-nodejs
+    shopify_cache_shopify:
+      container: /home/riptide/.cache/shopify
+      host: ~/.cache/shopify
+    shopify_cache_shopify_gems_nodejs:
+      container: /home/riptide/.cache/shopify-gems-nodejs
+      host: ~/.cache/shopify-gems-nodejs
+    shopify_config_shopify:
+      container: /home/riptide/.config/shopify
+      host: ~/.config/shopify
+    shopify-cli-theme-conf-nodejs:
+      container: /home/riptide/.config/shopify-cli-theme-conf-nodejs
+      host: ~/.config/shopify-cli-theme-conf-nodejs
+    shopify-cli-app-command-nodejs:
+      container: /home/riptide/.config/shopify-cli-app-command-nodejs
+      host: ~/.config/shopify-cli-app-command-nodejs
+    shopify-cli-development-theme-config-nodejs:
+      container: /home/riptide/.config/shopify-cli-development-theme-conf-nodejs
+      host: ~/.config/shopify-cli-development-theme-conf-nodejs
     shopify_cache_at:
       container: /home/riptide/.cache/@shopify
       host: ~/.cache/@shopify
