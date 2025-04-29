@@ -3,7 +3,7 @@ php
 
 PHP_ scripting language. Uses the `riptidepy/php <https://hub.docker.com/r/riptidepy/php>`_ images.
 
-There are variants for PHP 7.1 - 7.3 and one that uses the configuration of the service with role ``php``.
+There are variants for PHP 7.1 - 8.4 and one that uses the configuration of the service with role ``php``.
 
 .. _PHP: https://php.net/
 .. _Xdebug: https://xdebug.org/docs/remote
@@ -36,16 +36,7 @@ Use the ``from-service`` variant of this command for Xdebug support.
 
 **Based on**: /command/php/base
 
-Different PHP versions. Available versions:
-
-- 7.1
-- 7.2
-- 7.3
-- 7.4
-- 8.0
-- 8.1
-- 8.2
-- 8.3
+Different PHP versions.
 
 ``/command/php/from-service``
 -----------------------------

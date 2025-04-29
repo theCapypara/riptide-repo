@@ -62,8 +62,8 @@ Configuration:
 
 **Database**: mysql
 
-``/service/mysql/5.4``, ``/service/mysql/5.5``, ``/service/mysql/5.6``, ``/service/mysql/5.7``, ``/service/mysql/8.0``, ``/service/mysql/9.0``
-----------------------------------------------------------------------------------------------------------------------------------------------
+`/service/mysql/5.7``, ``/service/mysql/8.0``, ``/service/mysql/8.04``
+----------------------------------------------------------------------
 
 **Based on**: /service/mysql/base
 
