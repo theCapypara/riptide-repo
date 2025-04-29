@@ -3,7 +3,7 @@ php
 
 PHP_ scripting language. Uses the `riptidepy/php <https://hub.docker.com/r/riptidepy/php>`_ images.
 
-There are variants for PHP 7.1 - 8.3.
+There are variants for PHP 7.1 - 8.4.
 Some include the Apache web server (``apache`` variants), others include php-fpm (``php-fpm`` variants) and some only the interpreter (``cli`` variants).
 
 .. _PHP: https://php.net/
@@ -97,7 +97,7 @@ Variant that contains the Apache_ web server and integrates the PHP CGI module.
 
 **Based on**: /service/php/base
 
-Variant that only contains the PHP interpreter. PHP 7.1 - 7.3.
+Variant that only contains the PHP interpreter.
 
 ``/service/php/X.X/fpm``
 ------------------------
