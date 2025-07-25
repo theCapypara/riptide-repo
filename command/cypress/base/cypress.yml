@@ -1,0 +1,5 @@
+command:
+  command: cypress
+  in_service_with_role: cypress
+  environment:
+    DISPLAY: '{{ parent().services.cypress.environment.DISPLAY }}'
