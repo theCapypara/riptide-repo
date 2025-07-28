@@ -1,5 +1,5 @@
 command:
-  command: cypress run --browser firefox --project ${PROJECT_PATH}
+  command: cypress
   in_service_with_role: cypress
   environment:
     DISPLAY: '{{ parent().get_service_by_role("cypress").environment.DISPLAY }}'
