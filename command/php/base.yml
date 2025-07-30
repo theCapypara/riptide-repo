@@ -8,3 +8,6 @@ command:
         host: "~/.cache/riptide/{{ parent().parent().name }}/{{ image }}/opcache/xdebug_{% if system_config().get_plugin_flag('php-xdebug.enabled') %}en{% else %}dis{% endif %}abled"
         container: "/opcache"
         volume_name: "php_opcache__{{ parent().parent().name }}__{{ image | replace(':', '_') | replace('/', '_') }}__xdebug_{% if system_config().get_plugin_flag('php-xdebug.enabled') %}enabled{% else %}disabled{% endif %}"
+      tmp_phpinfo:
+        host: "/tmp/ide-phpinfo.php"
+        container: "/tmp/ide-phpinfo.php"
