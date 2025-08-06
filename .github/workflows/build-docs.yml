@@ -23,6 +23,8 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.12
+      - name: Remove old docs
+        run: rm -rf ./docs/source/repo_docs
       - name: Build docs
         run: ./copy_docs.py ./docs/source/repo_docs
       - name: Create Pull Request
