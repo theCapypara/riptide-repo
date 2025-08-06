@@ -1,6 +1,6 @@
 # ![Riptide](https://riptide-docs.readthedocs.io/en/latest/_images/logo.png)
 
-[<img src="https://readthedocs.org/projects/riptide-docs/badge/?version=latest" alt="Documentation Status">](https://readthedocs.org/projects/riptide-docs/badge/?version=latest)
+[<img src="https://readthedocs.org/projects/riptide-docs/badge/?version=latest" alt="Documentation Status">](https://riptide-docs.readthedocs.io/en/latest/)
 
 Riptide is a set of tools to manage development environments for web applications.
 It's using container virtualization tools, such as [Docker](https://www.docker.com/)
