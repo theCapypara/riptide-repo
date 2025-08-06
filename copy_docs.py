@@ -25,14 +25,14 @@ with open(os.path.join(docs_path, 'README_CONTRIBUTORS'), 'w') as file:
 
 def copy_files(type):
     os.makedirs(os.path.join(docs_path, type))
-    for file in list(glob.glob(os.path.join(repo_path, type, '*', 'README.rst'))):
+    for file in list(glob.glob(os.path.join(repo_path, type, '*', 'README.md'))):
         name = file.replace(repo_path + os.path.sep, '').split(os.sep)[1]
-        target_name = os.path.join(docs_path, type, '%s.rst' % name)
+        target_name = os.path.join(docs_path, type, '%s.md' % name)
         print(target_name + "...")
 
         # Insert the link to the repository before all contents:
         with open(file, 'r') as f:
-            lines = [".. AUTO-GENERATED, SEE README_CONTRIBUTORS. DO NOT EDIT.\n\n"] + f.readlines()
+            lines = ["% AUTO-GENERATED, SEE README_CONTRIBUTORS. DO NOT EDIT.\n\n"] + f.readlines()
 
         index = 0
         for index, line in enumerate(lines):
@@ -42,21 +42,8 @@ def copy_files(type):
         lines.insert(index, "**Link to entity in repository:** "
                             "`<https://github.com/theCapypara/riptide-repo/tree/master/%s/%s>`_\n\n" % (type, name))
 
-        new_lines = []
-        line_i = 0
-        while line_i < len(lines):
-            line = lines[line_i]
-            if line.startswith("..  contents::"):
-                # Skip this line and next one if contants :depth:
-                line_i += 1
-                if ":depth:" in lines[line_i]:
-                    line_i += 1
-                continue
-            new_lines.append(line)
-            line_i += 1
-
         with open(target_name, "w") as f:
-            f.writelines(new_lines)
+            f.writelines(lines)
 
 
 copy_files('app')
