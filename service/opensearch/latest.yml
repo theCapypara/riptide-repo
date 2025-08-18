@@ -1,6 +1,6 @@
 service:
   # WARNING: Under Linux make sure to run "sudo sysctl -w vm.max_map_count=262144" before or OS will crash.
-  image: riptidepy/opensearch:latest
+  image: opensearchproject/opensearch
   environment:
     ES_JAVA_OPTS: "-Xms512m -Xmx512m -Dlog4j2.formatMsgNoLookups=true"
   port: 9200
