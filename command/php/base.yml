@@ -11,3 +11,7 @@ command:
       tmp_phpinfo:
         host: "{{ get_tempdir() }}/ide-phpinfo.php"
         container: "{{ get_tempdir() }}/ide-phpinfo.php"
+      tmp_phpinfo_macos:
+        host: "/private{{ get_tempdir() }}/ide-phpinfo.php"
+        container: "/private{{ get_tempdir() }}/ide-phpinfo.php"
+        host_system: Darwin
