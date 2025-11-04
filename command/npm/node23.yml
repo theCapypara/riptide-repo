@@ -1,0 +1,3 @@
+command:
+  $ref: ./base
+  image: node:23

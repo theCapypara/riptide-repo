@@ -26,6 +26,10 @@ Different Node.jS versions. Available versions:
 - 19
 - 20
 - 21
+- 22
+- 23
+- 24
+- 25
 
 Other versions can be used by changing the version of the image.
 
