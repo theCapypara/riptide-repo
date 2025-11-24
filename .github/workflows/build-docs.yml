@@ -12,9 +12,9 @@ jobs:
     name: Build the Docs
     steps:
       - name: Checkout "riptide-repo"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Checkout "riptide-docs"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: theCapypara/riptide-docs
           path: docs
