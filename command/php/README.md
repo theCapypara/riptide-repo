@@ -2,7 +2,7 @@
 
 [PHP] scripting language. Uses the [riptidepy/php](https://hub.docker.com/r/riptidepy/php) images.
 
-There are variants for PHP 7.1 - 8.4 and one that uses the configuration of the service with role `php`.
+There are variants for PHP 7.1 - 8.5 and one that uses the configuration of the service with role `php`.
 
 
 ## `/command/php/base`
